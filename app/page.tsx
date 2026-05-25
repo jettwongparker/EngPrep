@@ -35,13 +35,25 @@ export default function Home() {
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [correctAttempts, setCorrectAttempts] = useState(0);
   const [topicStats, setTopicStats] = useState<any>({});
+  const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
 
-  const filteredQuestions =
-  selectedTopic === "All"
-    ? questions
-    : questions.filter(
-        (q) => q.topic === selectedTopic
-      );
+  useEffect(() => {
+    const filtered =
+      selectedTopic === "All"
+        ? questions
+        : questions.filter(
+            (q) => q.topic === selectedTopic
+          );
+
+    const shuffled = [...filtered].sort(
+      () => Math.random() - 0.5
+    );
+
+    setShuffledQuestions(shuffled);
+
+    setCurrentQuestion(0);
+
+  }, [selectedTopic]);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -104,8 +116,17 @@ export default function Home() {
     setSubmitted(true);
     setAnsweredCount(answeredCount + 1);
 
+  if (shuffledQuestions.length === 0) {
+    return (
+      <main className="min-h-screen bg-gray-100 p-8">
+        <div className="max-w-5xl mx-auto">
+          <p>Loading questions...</p>
+        </div>
+      </main>
+    );
+  }
     const isCorrect =
-      selected === filteredQuestions[currentQuestion].correct;
+      selected === shuffledQuestions[currentQuestion].correct;
 
     if (isCorrect) {
       setScore(score + 1);
@@ -116,14 +137,14 @@ export default function Home() {
           setCorrectAttempts(correctAttempts + 1);
         }
         setTopicStats((prevStats: any) => {
-          const current = prevStats[filteredQuestions[currentQuestion].topic] || {
+          const current = prevStats[shuffledQuestions[currentQuestion].topic] || {
             total: 0,
             correct: 0
           };
 
           return {
             ...prevStats,
-            [filteredQuestions[currentQuestion].topic]: {
+            [shuffledQuestions[currentQuestion].topic]: {
               total: current.total + 1,
               correct: current.correct + (isCorrect ? 1 : 0)
             }
@@ -135,11 +156,11 @@ export default function Home() {
         .insert([
           {
             user_id: user.id,
-            question: filteredQuestions[currentQuestion].question,
+            question: shuffledQuestions[currentQuestion].question,
             selected_answer: selected,
             is_correct: isCorrect,
-            topic: filteredQuestions[currentQuestion].topic,
-            difficulty: filteredQuestions[currentQuestion].difficulty
+            topic: shuffledQuestions[currentQuestion].topic,
+            difficulty: shuffledQuestions[currentQuestion].difficulty
           }
         ]);
 
@@ -160,7 +181,7 @@ export default function Home() {
       },
       body: JSON.stringify({
         question:
-          filteredQuestions[currentQuestion].question,
+          shuffledQuestions[currentQuestion].question,
 
         answer: interviewAnswer,
       }),
@@ -173,7 +194,7 @@ export default function Home() {
   }
 
   function handleNextQuestion() {
-    if (currentQuestion + 1 >= filteredQuestions.length) {
+    if (currentQuestion + 1 >= shuffledQuestions.length) {
       setFinished(true);
       return;
     }
@@ -355,17 +376,17 @@ export default function Home() {
         </h2>
 
         <p className="text-sm text-gray-500 mt-2">
-          {filteredQuestions[currentQuestion].topic} • {filteredQuestions[currentQuestion].difficulty}
+          {shuffledQuestions[currentQuestion].topic} • {shuffledQuestions[currentQuestion].difficulty}
         </p>
 
         <p className="mt-4">
-          {filteredQuestions[currentQuestion].question}
+          {shuffledQuestions[currentQuestion].question}
         </p>
 
         <div className="mt-4 flex flex-col gap-2">
 
           {
-            filteredQuestions[currentQuestion].choices.map((choice) => (
+            shuffledQuestions[currentQuestion].choices.map((choice: string) => (
 
             <button
               key={choice}
@@ -406,7 +427,7 @@ export default function Home() {
 
             <h3 className="font-bold">
 
-              {selected === filteredQuestions[currentQuestion].correct
+              {selected === shuffledQuestions[currentQuestion].correct
                 ? "✓ Correct"
                 : "✗ Incorrect"}
 
@@ -414,7 +435,7 @@ export default function Home() {
 
             <p className="mt-2">
 
-                {filteredQuestions[currentQuestion].explanation}
+                {shuffledQuestions[currentQuestion].explanation}
 
             </p>
 

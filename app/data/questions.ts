@@ -539,5 +539,214 @@ export const questions = [
   correct: "B",
   explanation:
     "Larger phase margin generally improves stability robustness."
+},
+{
+  topic: "Mechanics",
+  difficulty: "Hard",
+  question: "What happens to stress concentration around a sharp corner?",
+  choices: [
+    "A) It decreases",
+    "B) It remains unchanged",
+    "C) It increases",
+    "D) It becomes zero"
+  ],
+  correct: "C",
+  explanation:
+    "Sharp corners create stress concentrations which increase local stresses."
+},
+
+{
+  topic: "Aerospace",
+  difficulty: "Medium",
+  question: "What primarily causes an aircraft stall?",
+  choices: [
+    "A) Excessive speed",
+    "B) Flow separation over the wing",
+    "C) Insufficient thrust",
+    "D) High altitude"
+  ],
+  correct: "B",
+  explanation:
+    "A stall occurs when airflow separates from the wing surface."
+},
+
+{
+  topic: "Aerospace",
+  difficulty: "Medium",
+  question: "What is Mach number?",
+  choices: [
+    "A) Aircraft mass divided by thrust",
+    "B) Speed relative to the speed of sound",
+    "C) Lift divided by drag",
+    "D) Dynamic pressure ratio"
+  ],
+  correct: "B",
+  explanation:
+    "Mach number is the ratio of velocity to local speed of sound."
+},
+
+{
+  topic: "Aerospace",
+  difficulty: "Hard",
+  question: "What does C3 represent in orbital mechanics?",
+  choices: [
+    "A) Orbital altitude",
+    "B) Characteristic energy",
+    "C) Specific impulse",
+    "D) Transfer time"
+  ],
+  correct: "B",
+  explanation:
+    "C3 is characteristic energy and represents excess launch energy."
+},
+
+{
+  topic: "Electrical",
+  difficulty: "Medium",
+  question: "What is Kirchhoff's Current Law?",
+  choices: [
+    "A) Voltage drops equal resistance",
+    "B) Sum of currents entering equals sum leaving",
+    "C) Current equals voltage divided by resistance",
+    "D) Power is conserved"
+  ],
+  correct: "B",
+  explanation:
+    "KCL states that current entering a node equals current leaving it."
+},
+
+{
+  topic: "Electrical",
+  difficulty: "Hard",
+  question: "What is the purpose of a low-pass filter?",
+  choices: [
+    "A) Remove low frequencies",
+    "B) Allow high frequencies only",
+    "C) Pass low frequencies and attenuate high frequencies",
+    "D) Increase signal power"
+  ],
+  correct: "C",
+  explanation:
+    "Low-pass filters allow lower frequencies while reducing higher-frequency components."
+},
+
+{
+  topic: "Controls",
+  difficulty: "Medium",
+  question: "What is overshoot in a control system?",
+  choices: [
+    "A) Output exceeding desired value",
+    "B) Steady-state error",
+    "C) Sensor delay",
+    "D) Noise amplification"
+  ],
+  correct: "A",
+  explanation:
+    "Overshoot occurs when system response exceeds the desired output."
+},
+
+{
+  topic: "Controls",
+  difficulty: "Hard",
+  question: "What is a transfer function?",
+  choices: [
+    "A) Ratio of output to input in Laplace domain",
+    "B) Change in system energy",
+    "C) Difference between signals",
+    "D) System damping coefficient"
+  ],
+  correct: "A",
+  explanation:
+    "Transfer functions describe system input-output relationships in the Laplace domain."
+},
+
+{
+  topic: "Mechanics",
+  difficulty: "Medium",
+  question: "What property measures resistance to deformation?",
+  choices: [
+    "A) Density",
+    "B) Elastic modulus",
+    "C) Thermal conductivity",
+    "D) Specific heat"
+  ],
+  correct: "B",
+  explanation:
+    "Elastic modulus measures material stiffness and resistance to deformation."
+},
+
+{
+  topic: "Aerospace",
+  difficulty: "Hard",
+  question: "Why are reaction wheels used on spacecraft?",
+  choices: [
+    "A) Increase thrust",
+    "B) Control attitude without propellant",
+    "C) Reduce drag",
+    "D) Increase orbital velocity"
+  ],
+  correct: "B",
+  explanation:
+    "Reaction wheels control spacecraft orientation using angular momentum exchange."
+},
+
+{
+  topic: "Behavioral",
+  difficulty: "Easy",
+  question: "When answering 'Tell me about yourself,' what should you focus on?",
+  choices: [
+    "A) Personal hobbies only",
+    "B) Chronological life story",
+    "C) Relevant experiences and goals",
+    "D) Family background"
+  ],
+  correct: "C",
+  explanation:
+    "Interviewers usually want a concise summary of relevant experience and direction."
+},
+
+{
+  topic: "Behavioral",
+  difficulty: "Medium",
+  question: "When discussing a difficult project, what interview structure works best?",
+  choices: [
+    "A) STAR method",
+    "B) Random storytelling",
+    "C) Technical equations only",
+    "D) Start with conclusions"
+  ],
+  correct: "A",
+  explanation:
+    "STAR (Situation, Task, Action, Result) provides clear and structured responses."
+},
+
+{
+  topic: "Behavioral",
+  difficulty: "Medium",
+  question: "If an interviewer asks about failure, what should you emphasize?",
+  choices: [
+    "A) Blaming teammates",
+    "B) Hiding mistakes",
+    "C) Lessons learned and improvement",
+    "D) Avoid answering"
+  ],
+  correct: "C",
+  explanation:
+    "Interviewers typically value growth, accountability, and reflection."
+},
+
+{
+  topic: "Behavioral",
+  difficulty: "Hard",
+  question: "If two team members strongly disagree on an engineering approach, what is generally best?",
+  choices: [
+    "A) Ignore the disagreement",
+    "B) Let seniority decide automatically",
+    "C) Use data and technical trade studies",
+    "D) Choose randomly"
+  ],
+  correct: "C",
+  explanation:
+    "Engineering decisions are usually strongest when based on objective trade studies and data."
 }
 ];
