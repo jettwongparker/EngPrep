@@ -31,7 +31,12 @@ export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [finished, setFinished] = useState(false);
   const [user, setUser] = useState<any>(null);
-  const [isGuest, setIsGuest] = useState(false);
+  const [isGuest, setIsGuest] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("guestMode") === "true";
+    }
+    return false;
+  });
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [correctAttempts, setCorrectAttempts] = useState(0);
   const [topicStats, setTopicStats] = useState<any>({});
@@ -231,7 +236,10 @@ export default function Home() {
           />
 
           <button
-            onClick={() => setIsGuest(true)}
+            onClick={() => {
+              setIsGuest(true);
+              localStorage.setItem("guestMode", "true");
+            }}
             className="mt-6 w-full bg-black text-white px-4 py-3 rounded-lg shadow hover:bg-gray-800 transition"
           >
             Continue as Guest
@@ -240,8 +248,9 @@ export default function Home() {
       ) : (
         <button
           onClick={() => {
-            supabase.auth.signOut();
+            localStorage.removeItem("guestMode");
             setIsGuest(false);
+            supabase.auth.signOut();
           }}
           className="mt-4 border px-4 py-2 rounded"
         >
