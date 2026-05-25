@@ -31,12 +31,7 @@ export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [finished, setFinished] = useState(false);
   const [user, setUser] = useState<any>(null);
-  const [isGuest, setIsGuest] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("guestMode") === "true";
-    }
-    return false;
-  });
+  const [isGuest, setIsGuest] = useState(false);
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [correctAttempts, setCorrectAttempts] = useState(0);
   const [topicStats, setTopicStats] = useState<any>({});
@@ -49,6 +44,14 @@ export default function Home() {
         : questions.filter(
             (q) => q.topic === selectedTopic
           );
+
+  useEffect(() => {
+    const savedGuestMode = localStorage.getItem("guestMode");
+
+    if (savedGuestMode === "true") {
+      setIsGuest(true);
+    }
+  }, []);
 
     const shuffled = [...filtered].sort(
       () => Math.random() - 0.5
