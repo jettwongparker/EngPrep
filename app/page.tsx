@@ -111,7 +111,7 @@ export default function Home() {
       setScore(score + 1);
     }
         setTotalAttempts(totalAttempts + 1);
-        
+
         if (isCorrect) {
           setCorrectAttempts(correctAttempts + 1);
         }
@@ -203,7 +203,7 @@ export default function Home() {
       </div>
 
       {!user && !isGuest ? (
-        <div className="mt-8 max-w-md w-full">
+        <div className="mt-8 max-w-md w-full mx-auto">
           <Auth
             supabaseClient={supabase}
             appearance={{ theme: ThemeSupa }}
@@ -211,7 +211,7 @@ export default function Home() {
 
           <button
             onClick={() => setIsGuest(true)}
-            className="mt-4 w-full border px-4 py-2 rounded"
+            className="mt-6 w-full bg-black text-white px-4 py-3 rounded-lg shadow hover:bg-gray-800 transition"
           >
             Continue as Guest
           </button>
