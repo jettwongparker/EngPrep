@@ -110,27 +110,8 @@ export default function Home() {
     if (isCorrect) {
       setScore(score + 1);
     }
-
-    if (user) {
-      const { error } = await supabase
-        .from("attempts")
-        .insert([
-          {
-            user_id: user.id,
-            question: filteredQuestions[currentQuestion].question,
-            selected_answer: selected,
-            is_correct: isCorrect,
-            topic: filteredQuestions[currentQuestion].topic,
-            difficulty: filteredQuestions[currentQuestion].difficulty
-          }
-        ]);
-
-      if (error) {
-        console.error("Supabase insert error:", error.message);
-      }
-      if (!error) {
         setTotalAttempts(totalAttempts + 1);
-      }
+        
         if (isCorrect) {
           setCorrectAttempts(correctAttempts + 1);
         }
@@ -148,6 +129,23 @@ export default function Home() {
             }
           };
       });
+    if (user) {
+      const { error } = await supabase
+        .from("attempts")
+        .insert([
+          {
+            user_id: user.id,
+            question: filteredQuestions[currentQuestion].question,
+            selected_answer: selected,
+            is_correct: isCorrect,
+            topic: filteredQuestions[currentQuestion].topic,
+            difficulty: filteredQuestions[currentQuestion].difficulty
+          }
+        ]);
+
+      if (error) {
+        console.error("Supabase insert error:", error.message);
+      }
     }
   }
 
