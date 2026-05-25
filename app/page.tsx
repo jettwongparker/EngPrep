@@ -45,13 +45,13 @@ export default function Home() {
             (q) => q.topic === selectedTopic
           );
 
-  useEffect(() => {
-    const savedGuestMode = localStorage.getItem("guestMode");
+  // useEffect(() => {
+  //   const savedGuestMode = localStorage.getItem("guestMode");
 
-    if (savedGuestMode === "true") {
-      setIsGuest(true);
-    }
-  }, []);
+  //   if (savedGuestMode === "true") {
+  //     setIsGuest(true);
+  //   }
+  // }, []);
 
     const shuffled = [...filtered].sort(
       () => Math.random() - 0.5
@@ -239,10 +239,7 @@ export default function Home() {
           />
 
           <button
-            onClick={() => {
-              setIsGuest(true);
-              localStorage.setItem("guestMode", "true");
-            }}
+            onClick={() => setIsGuest(true)}
             className="mt-6 w-full bg-black text-white px-4 py-3 rounded-lg shadow hover:bg-gray-800 transition"
           >
             Continue as Guest
@@ -251,7 +248,6 @@ export default function Home() {
       ) : (
         <button
           onClick={() => {
-            localStorage.removeItem("guestMode");
             setIsGuest(false);
             supabase.auth.signOut();
           }}
