@@ -3,14 +3,16 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-6">
+      <nav className="sticky top-0 z-50 bg-white border-b">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <h1 className="text-2xl font-bold">EngPrep</h1>
 
         <div className="flex gap-6 text-sm">
           <Link href="/">Home</Link>
           <Link href="/practice">Practice</Link>
-          <Link href="#about">About</Link>
-          <Link href="#contact">Contact</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
         </div>
       </nav>
 
@@ -36,7 +38,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="#about"
+            href="/about"
             className="bg-white px-6 py-3 rounded-lg shadow hover:bg-gray-50 transition"
           >
             Learn More
