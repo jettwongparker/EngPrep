@@ -9,6 +9,7 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import Link from "next/link";
 
 import "katex/dist/katex.min.css";
 
@@ -126,7 +127,7 @@ export default function Home() {
 
   if (shuffledQuestions.length === 0) {
     return (
-      <main className="min-h-screen bg-gray-100 p-8">
+      <main className="min-h-screen bg-gray-100 p-4 md:p-8">
         <div className="max-w-5xl mx-auto">
           <p>Loading questions...</p>
         </div>
@@ -216,16 +217,58 @@ export default function Home() {
     setAiFeedback("");
   }
   return (
-    <main className="min-h-screen bg-gray-100 p-8">
+    <main className="min-h-screen bg-gray-100 p-4 md:p-8">
+      <nav className="sticky top-0 z-50 bg-white border-b mb-6 md:mb-8">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-4 md:px-6 py-3 md:py-4 gap-3 md:gap-0">
+
+          <h1 className="text-xl md:text-2xl font-bold">
+            EngPrep
+          </h1>
+
+          <div className="flex items-center justify-between md:justify-start gap-3 md:gap-6 text-sm w-full md:w-auto">
+
+            <Link
+              href="/"
+              className="hover:text-gray-500 transition"
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/practice"
+              className="font-medium"
+            >
+              Practice
+            </Link>
+
+            <Link
+              href="/about"
+              className="hover:text-gray-500 transition"
+            >
+              About
+            </Link>
+
+            <Link
+              href="/#contact"
+              className="hover:text-gray-500 transition"
+            >
+              Contact
+            </Link>
+
+          </div>
+
+        </div>
+      </nav>
+      
       <div className="max-w-5xl mx-auto">
 
-      <div className="bg-black text-white rounded-2xl p-8 mb-8 shadow-lg flex justify-between items-start">
+      <div className="bg-black text-white rounded-2xl p-5 md:p-8 mb-6 md:mb-8 shadow-lg flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0">
 
-        <h1 className="text-5xl font-bold">
-          EngPrep by Jett
+        <h1 className="text-3xl md:text-5xl font-bold">
+          EngPrep
         </h1>
 
-        <p className="mt-3 text-gray-300">
+        <p className="md:mt-3 text-sm md:text-base text-gray-300">
           AI-powered engineering interview practice
         </p>
 
@@ -258,7 +301,7 @@ export default function Home() {
       )}
     {(user || isGuest) && (
       <>
-      <div className="grid grid-cols-4 gap-4 mt-6 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-6 mb-6">
 
         <div className="bg-white rounded-xl shadow p-4">
           <p className="text-gray-500 text-sm">
@@ -314,7 +357,7 @@ export default function Home() {
         </div>
 
       </div>
-      <div className="mt-4 flex gap-2">
+      <div className="mt-4 flex gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
 
         {topics.map((topic) => (
 
@@ -333,7 +376,7 @@ export default function Home() {
               setScore(0);
               setAnsweredCount(0);
             }}
-            className={`px-4 py-2 rounded-full transition ${
+            className={`shrink-0 px-4 py-2 rounded-full transition ${
               selectedTopic === topic
                 ? "bg-black text-white"
                 : "bg-white hover:bg-gray-100"
@@ -346,7 +389,7 @@ export default function Home() {
 
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8">
 
         {finished ? (
           <div>
@@ -372,7 +415,7 @@ export default function Home() {
               Restart Session
             </button>
 
-            <p className="mt-4">
+            <p className="mt-4 leading-relaxed">
               Final Score: {score} / {answeredCount}
             </p>
           </div>
@@ -387,7 +430,7 @@ export default function Home() {
           {shuffledQuestions[currentQuestion].topic} • {shuffledQuestions[currentQuestion].difficulty}
         </p>
 
-        <p className="mt-4">
+        <p className="mt-4 leading-relaxed">
           {shuffledQuestions[currentQuestion].question}
         </p>
 
@@ -399,7 +442,7 @@ export default function Home() {
             <button
               key={choice}
               onClick={() => setSelected(choice[0])}
-              className={`border p-3 rounded-lg transition hover:scale-[1.01] hover:shadow ${
+              className={`border p-3 rounded-lg transition text-left w-full md:hover:scale-[1.01] hover:shadow ${
                 selected === choice[0]
                   ? "bg-gray-200"
                   : "bg-white"
@@ -447,19 +490,23 @@ export default function Home() {
 
             </p>
 
+          <div className="mt-4 flex flex-col md:flex-row gap-3 md:gap-4">
+
             <button
               onClick={() => setShowInterview(true)}
-              className="mt-4 border px-4 py-2 rounded"
+              className="w-full md:w-auto border px-4 py-3 md:py-2 rounded"
             >
               Practice AI Interview Answer (Optional)
             </button>
 
             <button
               onClick={handleNextQuestion}
-              className="mt-4 ml-4 bg-black text-white px-4 py-2 rounded"
+              className="w-full md:w-auto bg-black text-white px-4 py-3 md:py-2 rounded"
             >
               Next Question
             </button>
+
+          </div>
 
             {showInterview && (
 
