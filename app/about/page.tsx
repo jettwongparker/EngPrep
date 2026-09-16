@@ -252,6 +252,10 @@ useEffect(() => {
               confidence before interviews.
             </p>
 
+            <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+              Note: This website is completely free to use! But if you'd like to support the work: buymeacoffee.com/jettwp              
+            </p>
+
             <div className="mt-8">
               <Link
                 href="/practice"
