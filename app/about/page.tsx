@@ -271,7 +271,7 @@ useEffect(() => {
           <h3 className="text-2xl font-bold">Why I Made EngPrep</h3>
 
           <p className="mt-4 text-gray-300 leading-relaxed">
-            Software engineers have platforms like LeetCode, but engineering
+            Software engineers have platforms like LeetCode and HackerRank, but traditional engineering
             students do not have a clear equivalent for conceptual and technical
             interview prep. EngPrep is designed to fill that gap with question
             banks, AI feedback, topic analytics, and interview-style practice.
