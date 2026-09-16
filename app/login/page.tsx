@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import Image from "next/image";
 import { supabase } from "../../lib/supabase";
 import { Auth } from "@supabase/auth-ui-react";
 
-export default function Login() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -160,5 +160,21 @@ export default function Login() {
       </section>
 
     </main>
+  );
+}
+
+export default function Login() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-gray-100 dark:bg-gray-950 dark:text-gray-100">
+          <div className="max-w-lg mx-auto px-4 py-12 md:py-20">
+            <p>Loading...</p>
+          </div>
+        </main>
+      }
+    >
+      <LoginContent />
+    </Suspense>
   );
 }
