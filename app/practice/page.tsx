@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import { questions } from "../data/questions";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
 
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import Link from "next/link";
+import Image from "next/image";
 
 import "katex/dist/katex.min.css";
 
@@ -32,7 +31,7 @@ export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [finished, setFinished] = useState(false);
   const [user, setUser] = useState<any>(null);
-  const [isGuest, setIsGuest] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [correctAttempts, setCorrectAttempts] = useState(0);
   const [topicStats, setTopicStats] = useState<any>({});
@@ -45,14 +44,6 @@ export default function Home() {
         : questions.filter(
             (q) => q.topic === selectedTopic
           );
-
-  // useEffect(() => {
-  //   const savedGuestMode = localStorage.getItem("guestMode");
-
-  //   if (savedGuestMode === "true") {
-  //     setIsGuest(true);
-  //   }
-  // }, []);
 
     const shuffled = [...filtered].sort(
       () => Math.random() - 0.5
@@ -125,15 +116,6 @@ export default function Home() {
     setSubmitted(true);
     setAnsweredCount(answeredCount + 1);
 
-  if (shuffledQuestions.length === 0) {
-    return (
-      <main className="min-h-screen bg-gray-100 p-4 md:p-8">
-        <div className="max-w-5xl mx-auto">
-          <p>Loading questions...</p>
-        </div>
-      </main>
-    );
-  }
     const isCorrect =
       selected === shuffledQuestions[currentQuestion].correct;
 
@@ -216,51 +198,208 @@ export default function Home() {
     setInterviewSubmitted(false);
     setAiFeedback("");
   }
+    if (shuffledQuestions.length === 0) {
+    return (
+      <main className="min-h-screen bg-gray-100 dark:bg-gray-950 dark:text-gray-100">
+        <div className="max-w-5xl mx-auto px-4 md:px-8 pb-4 md:pb-8">
+          <p>Loading questions...</p>
+        </div>
+      </main>
+    );
+  }
   return (
-    <main className="min-h-screen bg-gray-100 p-4 md:p-8">
-      <nav className="sticky top-0 z-50 bg-white border-b mb-6 md:mb-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-4 md:px-6 py-3 md:py-4 gap-3 md:gap-0">
+    <main className="min-h-screen bg-gray-100 dark:bg-gray-950 dark:text-gray-100">
+      <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 mb-6 md:mb-8">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-4">
 
-          <h1 className="text-xl md:text-2xl font-bold">
-            EngPrep
-          </h1>
+          <div className="flex items-center justify-between">
 
-          <div className="flex items-center justify-between md:justify-start gap-3 md:gap-6 text-sm w-full md:w-auto">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src="/engprep-logo.png"
+                alt="EngPrep logo"
+                width={150}
+                height={150}
+                className="w-10 h-10 object-contain"
+              />
 
-            <Link
-              href="/"
-              className="hover:text-gray-500 transition"
-            >
-              Home
+              <span className="text-xl md:text-2xl font-bold">
+                EngPrep
+              </span>
             </Link>
 
-            <Link
-              href="/practice"
-              className="font-medium"
-            >
-              Practice
-            </Link>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6 text-sm">
 
-            <Link
-              href="/about"
-              className="hover:text-gray-500 transition"
-            >
-              About
-            </Link>
+              <Link
+                href="/"
+                className="hover:text-gray-500 dark:text-gray-400 transition"
+              >
+                Home
+              </Link>
 
-            <Link
-              href="/#contact"
-              className="hover:text-gray-500 transition"
+              <Link
+                href="/practice"
+                className="font-medium"
+              >
+                Practice
+              </Link>
+
+              <Link
+                href="/about"
+                className="hover:text-gray-500 dark:text-gray-400 transition"
+              >
+                About
+              </Link>
+
+              <Link
+                href="/contact"
+                className="hover:text-gray-500 dark:text-gray-400 transition"
+              >
+                Contact
+              </Link>
+
+              {user ? (
+                <button
+                  onClick={() => supabase.auth.signOut()}
+                  className="border border-gray-300 dark:border-gray-600 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="hover:text-gray-500 dark:text-gray-400 transition"
+                  >
+                    Log In
+                  </Link>
+
+                  <Link
+                    href="/login?mode=signup"
+                    className="border border-gray-300 dark:border-gray-600 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+
+            </div>
+
+            {/* Mobile Hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2"
+              aria-label="Toggle navigation menu"
+              aria-expanded={menuOpen}
             >
-              Contact
-            </Link>
+              {menuOpen ? (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
 
           </div>
+
+          {/* Mobile Navigation */}
+          {menuOpen && (
+            <div className="md:hidden pt-4 pb-2 border-t border-gray-200 dark:border-gray-700 mt-4 flex flex-col">
+
+              <Link
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="py-3 border-b border-gray-200 dark:border-gray-700"
+              >
+                Home
+              </Link>
+
+              <Link
+                href="/practice"
+                onClick={() => setMenuOpen(false)}
+                className="py-3 border-b border-gray-200 dark:border-gray-700 font-medium"
+              >
+                Practice
+              </Link>
+
+              <Link
+                href="/about"
+                onClick={() => setMenuOpen(false)}
+                className="py-3 border-b border-gray-200 dark:border-gray-700"
+              >
+                About
+              </Link>
+
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="py-3 border-b border-gray-200 dark:border-gray-700"
+              >
+                Contact
+              </Link>
+
+              {user ? (
+                <button
+                  onClick={async () => {
+                    await supabase.auth.signOut();
+                    setMenuOpen(false);
+                  }}
+                  className="py-3 text-left"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    onClick={() => setMenuOpen(false)}
+                    className="py-3 border-b border-gray-200 dark:border-gray-700"
+                  >
+                    Log In
+                  </Link>
+
+                  <Link
+                    href="/login?mode=signup"
+                    onClick={() => setMenuOpen(false)}
+                    className="py-3 font-medium"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+
+            </div>
+          )}
 
         </div>
       </nav>
       
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 pb-4 md:pb-8">
 
       <div className="bg-black text-white rounded-2xl p-5 md:p-8 mb-6 md:mb-8 shadow-lg flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0">
 
@@ -274,37 +413,10 @@ export default function Home() {
 
       </div>
 
-      {!user && !isGuest ? (
-        <div className="mt-8 max-w-md w-full mx-auto">
-          <Auth
-            supabaseClient={supabase}
-            appearance={{ theme: ThemeSupa }}
-          />
-
-          <button
-            onClick={() => setIsGuest(true)}
-            className="mt-6 w-full bg-black text-white px-4 py-3 rounded-lg shadow hover:bg-gray-800 transition"
-          >
-            Continue as Guest
-          </button>
-        </div>
-      ) : (
-        <button
-          onClick={() => {
-            setIsGuest(false);
-            supabase.auth.signOut();
-          }}
-          className="mt-4 border px-4 py-2 rounded"
-        >
-          {isGuest ? "Exit Guest Mode" : "Log out"}
-        </button>
-      )}
-    {(user || isGuest) && (
-      <>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-6 mb-6">
 
-        <div className="bg-white rounded-xl shadow p-4">
-          <p className="text-gray-500 text-sm">
+        <div className="bg-white dark:bg-gray-900 dark:bg-gray-900 rounded-xl shadow p-4">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
             Session
           </p>
 
@@ -313,8 +425,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow p-4">
-          <p className="text-gray-500 text-sm">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-4">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
             Accuracy
           </p>
 
@@ -330,8 +442,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow p-4">
-          <p className="text-gray-500 text-sm">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-4">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
             Weakest Topic
           </p>
 
@@ -346,8 +458,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow p-4">
-          <p className="text-gray-500 text-sm">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-4">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
             Topics Practiced
           </p>
 
@@ -357,7 +469,7 @@ export default function Home() {
         </div>
 
       </div>
-      <div className="mt-4 flex gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
+      <div className="mt-4 mb-4 flex flex-wrap gap-2">
 
         {topics.map((topic) => (
 
@@ -376,10 +488,10 @@ export default function Home() {
               setScore(0);
               setAnsweredCount(0);
             }}
-            className={`shrink-0 px-4 py-2 rounded-full transition ${
+            className={`px-3 md:px-4 py-2 text-sm md:text-base rounded-full transition ${
               selectedTopic === topic
-                ? "bg-black text-white"
-                : "bg-white hover:bg-gray-100"
+                ? "bg-black text-white dark:bg-white dark:text-black"
+                : "bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700"
             }`}
           >
             {topic}
@@ -389,7 +501,7 @@ export default function Home() {
 
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 md:p-8">
 
         {finished ? (
           <div>
@@ -410,7 +522,7 @@ export default function Home() {
                 setScore(0);
                 setAnsweredCount(0);
               }}
-              className="mt-4 bg-black text-white px-4 py-2 rounded"
+              className="mt-4 bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded hover:bg-gray-800 dark:hover:bg-gray-200 disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-400 disabled:cursor-not-allowed"
             >
               Restart Session
             </button>
@@ -426,7 +538,7 @@ export default function Home() {
           Practice Question
         </h2>
 
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
           {shuffledQuestions[currentQuestion].topic} • {shuffledQuestions[currentQuestion].difficulty}
         </p>
 
@@ -442,10 +554,10 @@ export default function Home() {
             <button
               key={choice}
               onClick={() => setSelected(choice[0])}
-              className={`border p-3 rounded-lg transition text-left w-full md:hover:scale-[1.01] hover:shadow ${
+              className={`border border-gray-200 dark:border-gray-700 p-3 rounded-lg transition text-left w-full md:hover:scale-[1.01] hover:shadow ${
                 selected === choice[0]
-                  ? "bg-gray-200"
-                  : "bg-white"
+                  ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                  : "bg-white text-black dark:bg-gray-900 dark:text-white"
               }`}
             >
               {choice}
@@ -459,18 +571,18 @@ export default function Home() {
 
     
 
-        {!submitted ? (
-          <button
-            onClick={handleSubmit}
-            disabled={!selected}
-            className={`mt-4 px-4 py-2 rounded ${
-              selected
-                ? "bg-black text-white"
-                : "bg-gray-300 text-gray-500 cursor-not-allowed"
-            }`}
-          >
-            Submit
-          </button>
+          {!submitted ? (
+            <button
+              onClick={handleSubmit}
+              disabled={!selected}
+              className={`mt-4 px-4 py-2 rounded border transition ${
+                selected
+                  ? "bg-black text-white border-black dark:bg-gray-700 dark:text-white dark:border-gray-600 hover:bg-gray-800 dark:hover:bg-gray-600"
+                  : "bg-gray-300 text-gray-500 border-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:border-gray-700 cursor-not-allowed"
+              }`}
+            >
+              Submit
+            </button>
 
         ) : (
 
@@ -494,7 +606,7 @@ export default function Home() {
 
             <button
               onClick={() => setShowInterview(true)}
-              className="w-full md:w-auto border px-4 py-3 md:py-2 rounded"
+              className="w-full md:w-auto border border-gray-200 dark:border-gray-700 px-4 py-3 md:py-2 rounded"
             >
               Practice AI Interview Answer (Optional)
             </button>
@@ -517,7 +629,7 @@ export default function Home() {
                 </h3>
 
                 <textarea
-                  className="w-full border p-2 rounded mt-2"
+                  className="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 p-3 rounded-lg mt-2"
                   rows={4}
                   placeholder="Explain your reasoning as if you were in an interview..."
                   value={interviewAnswer}
@@ -538,7 +650,7 @@ export default function Home() {
 
                 <button
                   onClick={handleInterviewSubmit}
-                  className="mt-4 bg-black text-white px-4 py-2 rounded"
+                  className="mt-4 px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white text-black dark:bg-transparent dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Submit Interview Response
                 </button>
@@ -549,7 +661,7 @@ export default function Home() {
 
             {interviewSubmitted && (
 
-              <div className="mt-4 border rounded p-4">
+              <div className="mt-4 border border-gray-200 dark:border-gray-700 rounded p-4">
 
                 <h3 className="font-bold">
                   Your Response
@@ -560,7 +672,7 @@ export default function Home() {
                 </p>
 
               {loadingFeedback ? (
-                <div className="flex items-center gap-2 mt-4 text-sm text-gray-600">
+                <div className="flex items-center gap-2 mt-4 text-sm text-gray-600 dark:text-gray-300">
                   <div className="animate-spin rounded-full h-4 w-4 border-2 border-black border-t-transparent"></div>
 
                   <span>
@@ -587,8 +699,6 @@ export default function Home() {
         )}
 
       </div>
-      </>
-    )}
     </div>
     </main>
   );

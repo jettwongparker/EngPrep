@@ -24,3 +24,92 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* EngPrep Supabase Auth */
+
+.engprep-auth-button {
+  background: white !important;
+  color: #111827 !important;
+  border: 1px solid #9ca3af !important;
+}
+
+.engprep-auth-button:hover {
+  background: #f3f4f6 !important;
+}
+
+.engprep-auth-input {
+  background: white !important;
+  color: #111827 !important;
+  border: 1px solid #9ca3af !important;
+}
+
+.engprep-auth-input::placeholder {
+  color: #9ca3af !important;
+}
+
+.engprep-auth-label {
+  color: #374151 !important;
+}
+
+.engprep-auth-anchor {
+  color: #4b5563 !important;
+}
+
+.engprep-auth-anchor:hover {
+  color: #111827 !important;
+}
+
+.engprep-auth-divider {
+  background: #d1d5db !important;
+}
+
+.engprep-auth-message {
+  color: #374151 !important;
+}
+
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+
+  .engprep-auth-button {
+    background: transparent !important;
+    color: white !important;
+    border-color: #4b5563 !important;
+  }
+
+  .engprep-auth-button:hover {
+    background: #1f2937 !important;
+  }
+
+  .engprep-auth-input {
+    background: #1f2937 !important;
+    color: white !important;
+    border-color: #4b5563 !important;
+  }
+
+  .engprep-auth-input::placeholder {
+    color: #9ca3af !important;
+  }
+
+  .engprep-auth-label {
+    color: #e5e7eb !important;
+  }
+
+  .engprep-auth-anchor {
+    color: #d1d5db !important;
+  }
+
+  .engprep-auth-anchor:hover {
+    color: white !important;
+  }
+
+  .engprep-auth-divider {
+    background: #374151 !important;
+  }
+
+  .engprep-auth-message {
+    color: #e5e7eb !important;
+  }
+
+}
