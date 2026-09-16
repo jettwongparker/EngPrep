@@ -201,7 +201,7 @@ export default function Home() {
     if (shuffledQuestions.length === 0) {
     return (
       <main className="min-h-screen bg-gray-100 dark:bg-gray-950 dark:text-gray-100">
-        <div className="max-w-5xl mx-auto px-4 md:px-8 pb-4 md:pb-8">
+        <div className="max-w-5xl mx-auto px-4 md:px-8 pb-24 md:pb-8">
           <p>Loading questions...</p>
         </div>
       </main>
@@ -399,7 +399,7 @@ export default function Home() {
         </div>
       </nav>
       
-      <div className="max-w-5xl mx-auto px-4 md:px-8 pb-4 md:pb-8">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 pb-24 md:pb-8">
 
       <div className="bg-black text-white rounded-2xl p-5 md:p-8 mb-6 md:mb-8 shadow-lg flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0">
 
