@@ -230,37 +230,37 @@ export default function Home() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6 text-sm">
+            <div className="hidden md:flex items-center gap-6 text-sm font-medium">
 
               <Link
                 href="/"
-                className="hover:text-gray-500 dark:text-gray-400 transition"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 Home
               </Link>
 
               <Link
                 href="/practice"
-                className="font-medium"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 Practice
               </Link>
 
               <Link
                 href="/about"
-                className="hover:text-gray-500 dark:text-gray-400 transition"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 About
               </Link>
 
               <Link
                 href="/contact"
-                className="hover:text-gray-500 dark:text-gray-400 transition"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 Contact
               </Link>
 
-              {user ? (
+              {/* {user ? (
                 <button
                   onClick={() => supabase.auth.signOut()}
                   className="border border-gray-300 dark:border-gray-600 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
@@ -283,7 +283,7 @@ export default function Home() {
                     Sign Up
                   </Link>
                 </>
-              )}
+              )} */}
 
             </div>
 
@@ -363,7 +363,7 @@ export default function Home() {
                 Contact
               </Link>
 
-              {user ? (
+              {/* {user ? (
                 <button
                   onClick={async () => {
                     await supabase.auth.signOut();
@@ -391,7 +391,7 @@ export default function Home() {
                     Sign Up
                   </Link>
                 </>
-              )}
+              )} */}
 
             </div>
           )}

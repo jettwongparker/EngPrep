@@ -27,7 +27,7 @@ useEffect(() => {
 
   return (
     <main className="min-h-screen bg-gray-100 dark:bg-gray-950 dark:text-gray-100">
-      <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 mb-6 md:mb-8">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-4">
 
           <div className="flex items-center justify-between">
@@ -80,7 +80,7 @@ useEffect(() => {
               >
                 Contact
               </Link>
-              {user ? (
+              {/* {user ? (
                 <button
                   onClick={() => supabase.auth.signOut()}
                   className="border border-gray-300 dark:border-gray-600 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
@@ -103,7 +103,7 @@ useEffect(() => {
                     Sign Up
                   </Link>
                 </>
-              )}
+              )} */}
             </div>
 
             {/* Mobile Hamburger */}
@@ -169,7 +169,7 @@ useEffect(() => {
               <Link
                 href="/about"
                 onClick={() => setMenuOpen(false)}
-                className="py-3 border-b border-gray-200 dark:border-gray-700 font-medium"
+                className="font-medium"
               >
                 About
               </Link>
@@ -182,7 +182,7 @@ useEffect(() => {
                 Contact
               </Link>
 
-              {user ? (
+              {/* {user ? (
                 <button
                   onClick={async () => {
                     await supabase.auth.signOut();
@@ -210,7 +210,7 @@ useEffect(() => {
                     Sign Up
                   </Link>
                 </>
-              )}
+              )} */}
 
             </div>
           )}
