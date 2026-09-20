@@ -169,7 +169,7 @@ useEffect(() => {
               <Link
                 href="/about"
                 onClick={() => setMenuOpen(false)}
-                className="font-medium"
+                className="py-3 border-b border-gray-200 dark:border-gray-700"
               >
                 About
               </Link>
@@ -253,7 +253,9 @@ useEffect(() => {
             </p>
 
             <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-              Note: This website is completely free to use! But if you'd like to support the work: buymeacoffee.com/jettwp              
+              Note: This website is completely free to use! But if you'd like to support the work: buymeacoffee.com/jettwp
+              <br />
+              Venmo: @Jett-Wong-Parker            
             </p>
 
             <div className="mt-8">
