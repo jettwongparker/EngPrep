@@ -57,28 +57,35 @@ useEffect(() => {
 
               <Link
                 href="/"
-                className="hover:text-gray-500 transition"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 Home
               </Link>
 
               <Link
                 href="/practice"
-                className="hover:text-gray-500 transition"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 Practice
               </Link>
 
               <Link
+                href="/custom-generation"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
+              >
+                Custom Generation
+              </Link>
+
+              <Link
                 href="/about"
-                className="hover:text-gray-500 transition"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 About
               </Link>
 
               <Link
                 href="/contact"
-                className="font-medium"
+                className="font-semibold"
               >
                 Contact
               </Link>
@@ -166,6 +173,14 @@ useEffect(() => {
             className="py-3 border-b border-gray-200 dark:border-gray-700"
             >
             Practice
+            </Link>
+
+            <Link
+              href="/custom-generation"
+              onClick={() => setMenuOpen(false)}
+              className="py-3 border-b border-gray-200 dark:border-gray-700"
+            >
+              AI Practice
             </Link>
 
             <Link

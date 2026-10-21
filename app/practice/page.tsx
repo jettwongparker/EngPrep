@@ -111,7 +111,7 @@ export default function Home() {
   }, []);
 
   async function handleSubmit() {
-    if (!selected) return;
+    if (!selected || submitted || finished) return;
 
     setSubmitted(true);
     setAnsweredCount(answeredCount + 1);
@@ -241,9 +241,16 @@ export default function Home() {
 
               <Link
                 href="/practice"
-                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
+                className="font-semibold"
               >
                 Practice
+              </Link>
+
+              <Link
+                href="/custom-generation"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
+              >
+                Custom Generation
               </Link>
 
               <Link
@@ -348,6 +355,14 @@ export default function Home() {
               </Link>
 
               <Link
+                href="/custom-generation"
+                onClick={() => setMenuOpen(false)}
+                className="py-3 border-b border-gray-200 dark:border-gray-700"
+              >
+                AI Practice
+              </Link>
+
+              <Link
                 href="/about"
                 onClick={() => setMenuOpen(false)}
                 className="py-3 border-b border-gray-200 dark:border-gray-700"
@@ -415,7 +430,7 @@ export default function Home() {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-6 mb-6">
 
-        <div className="bg-white dark:bg-gray-900 dark:bg-gray-900 rounded-xl shadow p-4">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-4">
           <p className="text-gray-500 dark:text-gray-400 text-sm">
             Session
           </p>
@@ -553,7 +568,8 @@ export default function Home() {
 
             <button
               key={choice}
-              onClick={() => setSelected(choice[0])}
+              onClick={() => !submitted && setSelected(choice[0])}
+              disabled={submitted}
               className={`border border-gray-200 dark:border-gray-700 p-3 rounded-lg transition text-left w-full md:hover:scale-[1.01] hover:shadow ${
                 selected === choice[0]
                   ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
@@ -571,7 +587,7 @@ export default function Home() {
 
     
 
-          {!submitted ? (
+          {!finished && (!submitted ? (
             <button
               onClick={handleSubmit}
               disabled={!selected}
@@ -696,7 +712,7 @@ export default function Home() {
 
           </div>
 
-        )}
+        ))}
 
       </div>
     </div>

@@ -1,2114 +1,2606 @@
+// EngPrep curated question bank — revised and expanded.
+// 200 questions across five topics; four choices and one correct answer each.
+// Replace app/data/questions.ts with this file.
+
 export const questions = [
   {
     topic: "Mechanics",
     difficulty: "Easy",
-    question:
-      "Where does maximum bending stress occur in a cantilever beam with a point load at the free end?",
+    question: "A simply supported beam carries a central point load P over span L. What is its maximum bending moment?",
     choices: [
-      "A) Free end",
-      "B) Midpoint",
-      "C) Fixed support",
-      "D) Uniform everywhere"
+      "A) PL/8",
+      "B) PL/4",
+      "C) PL/2",
+      "D) PL",
+    ],
+    correct: "B",
+    explanation: "Each support reacts with P/2; at midspan, M_max=(P/2)(L/2)=PL/4.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "A prismatic bar experiences axial tension within its linear elastic range. Which quantity relates stress to strain?",
+    choices: [
+      "A) Shear modulus",
+      "B) Bulk modulus",
+      "C) Young's modulus",
+      "D) Poisson's ratio",
     ],
     correct: "C",
-    explanation:
-      "Maximum bending stress occurs at the fixed support because bending moment is largest there."
+    explanation: "For uniaxial linear elasticity, normal stress equals Young's modulus multiplied by axial strain.",
   },
-
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "What happens to the extension of an axially loaded linear-elastic bar if its length doubles while force, area, and material stay unchanged?",
+    choices: [
+      "A) It doubles",
+      "B) It halves",
+      "C) It quadruples",
+      "D) It remains unchanged",
+    ],
+    correct: "A",
+    explanation: "Axial extension is FL/(AE), directly proportional to original length.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "In a free-body diagram of a pinned support in 2D, which reactions are generally included?",
+    choices: [
+      "A) One force and one moment",
+      "B) One vertical force only",
+      "C) Two forces and a moment",
+      "D) Two orthogonal force components, no moment",
+    ],
+    correct: "D",
+    explanation: "An ideal pin prevents translation in two directions but permits rotation, so it has two force reactions and no reaction couple.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "For a ductile metal under uniaxial tension, what is generally meant by first yield?",
+    choices: [
+      "A) The onset of irreversible plastic deformation",
+      "B) The point of maximum engineering stress",
+      "C) The onset of necking",
+      "D) Complete fracture",
+    ],
+    correct: "A",
+    explanation: "Yield marks the onset of plastic strain; ultimate strength, necking, and fracture occur later.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "For a beam with a rectangular cross section of width b and height h, the second moment of area about its centroidal horizontal axis scales with which power of h?",
+    choices: [
+      "A) First",
+      "B) Second",
+      "C) Third",
+      "D) Fourth",
+    ],
+    correct: "C",
+    explanation: "For this axis, I=bh^3/12, so bending stiffness is especially sensitive to height.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "A constant torque T is applied to a circular shaft. If the shaft radius doubles, how does maximum torsional shear stress change for otherwise identical solid shafts?",
+    choices: [
+      "A) It doubles",
+      "B) It falls by a factor of eight",
+      "C) It falls by a factor of four",
+      "D) It increases by a factor of four",
+    ],
+    correct: "B",
+    explanation: "For a solid circular shaft, tau_max=2T/(pi r^3), so doubling radius reduces stress to one-eighth.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "What does Poisson's ratio quantify in uniaxial elastic loading?",
+    choices: [
+      "A) Axial stress divided by axial strain",
+      "B) Shear strain divided by axial strain",
+      "C) Bulk stress divided by volumetric strain",
+      "D) Negative transverse strain divided by axial strain",
+    ],
+    correct: "D",
+    explanation: "Poisson's ratio is the negative ratio of transverse strain to longitudinal strain.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "For dry Coulomb friction before sliding, which statement is correct?",
+    choices: [
+      "A) Static friction always equals mu_s N",
+      "B) Static friction can range from zero up to mu_s N",
+      "C) Static friction must be smaller than kinetic friction",
+      "D) Static friction depends only on contact area",
+    ],
+    correct: "B",
+    explanation: "The static friction force adjusts to maintain equilibrium, up to its maximum value mu_s N.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Easy",
+    question: "When is the sum of moments about any point zero for a rigid body in planar static equilibrium?",
+    choices: [
+      "A) Only if net force is vertical",
+      "B) Only if the body is symmetric",
+      "C) Whenever the body is in complete static equilibrium",
+      "D) Only if the origin is at its center of mass",
+    ],
+    correct: "C",
+    explanation: "Static equilibrium requires zero net force and zero net moment about every reference point.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "An isotropic linear-elastic material has E=210 GPa and Poisson's ratio 0.30. Approximately what is its shear modulus?",
+    choices: [
+      "A) 81 GPa",
+      "B) 105 GPa",
+      "C) 161 GPa",
+      "D) 63 GPa",
+    ],
+    correct: "A",
+    explanation: "G=E/[2(1+nu)]=210/[2(1.3)]≈80.8 GPa.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A cantilever beam carries a downward point load at its free tip. Which feature of the bending-moment diagram is correct?",
+    choices: [
+      "A) Moment is constant over the full span",
+      "B) Moment is zero at the clamp",
+      "C) Moment is greatest at the tip",
+      "D) Moment magnitude varies linearly and peaks at the clamp",
+    ],
+    correct: "D",
+    explanation: "The bending moment magnitude grows linearly from zero at the free end to PL at the fixed end.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For the same material, length, and load, two circular columns differ only in diameter. Doubling diameter changes Euler critical buckling load by what factor?",
+    choices: [
+      "A) 4",
+      "B) 8",
+      "C) 16",
+      "D) 2",
+    ],
+    correct: "C",
+    explanation: "Euler load is proportional to EI; a solid circular section has I proportional to d^4, giving a factor of 16.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A plane-stress element has sigma_x=60 MPa, sigma_y=20 MPa, and tau_xy=0. What is the maximum in-plane shear stress?",
+    choices: [
+      "A) 40 MPa",
+      "B) 20 MPa",
+      "C) 60 MPa",
+      "D) 10 MPa",
+    ],
+    correct: "B",
+    explanation: "Maximum in-plane shear equals half the difference of the principal stresses: (60−20)/2=20 MPa.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For a linearly elastic beam, doubling Young's modulus E while leaving load and geometry unchanged has what effect on bending deflection?",
+    choices: [
+      "A) Halves it",
+      "B) Doubles it",
+      "C) Leaves it unchanged",
+      "D) Reduces it by a factor of four",
+    ],
+    correct: "A",
+    explanation: "In small-deflection beam theory, displacement is inversely proportional to flexural rigidity EI.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "Which failure criterion is most commonly appropriate for yielding of ductile metals under multiaxial stress?",
+    choices: [
+      "A) Maximum normal stress",
+      "B) Maximum principal strain only",
+      "C) Mohr-Coulomb friction criterion",
+      "D) von Mises equivalent stress",
+    ],
+    correct: "D",
+    explanation: "The von Mises criterion relates multiaxial distortion energy to ductile yielding.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A 2 m bar has cross-sectional area 200 mm², E=200 GPa, and axial tensile force 10 kN. Approximately how much does it elongate?",
+    choices: [
+      "A) 0.05 mm",
+      "B) 0.50 mm",
+      "C) 1.0 mm",
+      "D) 5.0 mm",
+    ],
+    correct: "B",
+    explanation: "delta=FL/(AE)=10,000×2/(200e−6×200e9)=0.0005 m=0.50 mm.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For a simply supported beam under uniform distributed load w across span L, the maximum deflection scales with which power of span?",
+    choices: [
+      "A) L²",
+      "B) L³",
+      "C) L⁴",
+      "D) L⁵",
+    ],
+    correct: "C",
+    explanation: "The Euler-Bernoulli maximum deflection is 5wL^4/(384EI).",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "In a plane-stress condition with sigma_x=100 MPa, sigma_y=0, and tau_xy=0, what are the principal stresses?",
+    choices: [
+      "A) 100 MPa and 0 MPa",
+      "B) 50 MPa and −50 MPa",
+      "C) 100 MPa and −100 MPa",
+      "D) 50 MPa and 0 MPa",
+    ],
+    correct: "A",
+    explanation: "With no shear, the coordinate axes are principal directions and the principal stresses are the normal stresses.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "What is the primary purpose of using a stress-concentration factor K_t in elastic design?",
+    choices: [
+      "A) To estimate fatigue endurance directly",
+      "B) To compute average section stress",
+      "C) To convert von Mises stress to shear stress",
+      "D) To estimate local peak stress near a geometric discontinuity",
+    ],
+    correct: "D",
+    explanation: "K_t is the elastic peak-to-nominal stress ratio around notches, holes, and other discontinuities.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For a solid circular shaft in elastic torsion, where is the magnitude of shear stress largest?",
+    choices: [
+      "A) At the shaft centerline",
+      "B) Halfway between center and surface",
+      "C) At the outer surface",
+      "D) Uniform across the cross section",
+    ],
+    correct: "C",
+    explanation: "Shear stress varies linearly with radius, reaching a maximum at the exterior.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A mass of 2 kg moving at 3 m/s collides with a stationary 1 kg mass, and they stick together. What is their common speed afterward along the original direction?",
+    choices: [
+      "A) 1 m/s",
+      "B) 2 m/s",
+      "C) 3 m/s",
+      "D) 4 m/s",
+    ],
+    correct: "B",
+    explanation: "Conservation of linear momentum gives v=(2×3+1×0)/(2+1)=2 m/s.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A spring of stiffness k is placed in series with an identical spring. What is the equivalent stiffness?",
+    choices: [
+      "A) k/2",
+      "B) k",
+      "C) 2k",
+      "D) 4k",
+    ],
+    correct: "A",
+    explanation: "Series spring compliances add: 1/k_eq=1/k+1/k, so k_eq=k/2.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For an ideal slender column pinned at both ends, what effective-length factor K is used in Euler buckling?",
+    choices: [
+      "A) 0.5",
+      "B) 0.7",
+      "C) 2.0",
+      "D) 1.0",
+    ],
+    correct: "D",
+    explanation: "A pin-pin column has an effective length equal to its unsupported length, K=1.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "In small-strain linear elasticity, what is the strain energy stored in an ideal axial spring stretched by x?",
+    choices: [
+      "A) kx²",
+      "B) kx²/2",
+      "C) kx/2",
+      "D) k²x/2",
+    ],
+    correct: "B",
+    explanation: "Spring strain energy is the area under the force-displacement curve, U=(1/2)kx².",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A 100 N force acts 0.3 m from a pivot, perpendicular to the radius vector. What is its torque magnitude?",
+    choices: [
+      "A) 3 N·m",
+      "B) 15 N·m",
+      "C) 30 N·m",
+      "D) 300 N·m",
+    ],
+    correct: "C",
+    explanation: "Moment magnitude is rF sin(theta)=0.3×100×1=30 N·m.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For a rectangular beam in pure bending, which change gives the largest reduction in maximum bending stress while maintaining cross-sectional area approximately constant?",
+    choices: [
+      "A) Increase section depth and decrease width appropriately",
+      "B) Increase width and decrease depth appropriately",
+      "C) Shift the beam horizontally",
+      "D) Change the material density only",
+    ],
+    correct: "A",
+    explanation: "Section modulus for a rectangle grows strongly with depth; at constant area, increasing depth improves bending strength about the horizontal axis.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "What does the area under an engineering stress–strain curve up to first yield approximate?",
+    choices: [
+      "A) Material hardness",
+      "B) Elastic modulus",
+      "C) Poisson's ratio",
+      "D) Elastic strain energy density (modulus of resilience)",
+    ],
+    correct: "D",
+    explanation: "The integral of stress over strain through the elastic regime gives recoverable energy per unit volume.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "A body rotates at constant angular speed about a fixed axis. Which kinematic statement is correct?",
+    choices: [
+      "A) Both angular acceleration and centripetal acceleration are zero",
+      "B) Angular acceleration is zero, but off-axis points have centripetal acceleration",
+      "C) Angular acceleration is nonzero and tangential acceleration is zero",
+      "D) Tangential acceleration and centripetal acceleration are equal",
+    ],
+    correct: "B",
+    explanation: "Constant angular speed means alpha=0, yet points with nonzero radius accelerate toward the axis at omega²r.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Medium",
+    question: "For a beam with a point of zero shear in a region of smoothly distributed loading, what commonly occurs at that location?",
+    choices: [
+      "A) The bending moment is necessarily zero",
+      "B) The bending stress must vanish everywhere",
+      "C) The bending moment has a local extremum",
+      "D) The support reaction must change sign",
+    ],
+    correct: "C",
+    explanation: "From dM/dx=V, zero shear identifies a stationary point of the bending-moment diagram.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "For plane stress with sigma_x=80 MPa, sigma_y=−20 MPa, and tau_xy=30 MPa, what is the maximum principal stress (approximately)?",
+    choices: [
+      "A) 88 MPa",
+      "B) 98 MPa",
+      "C) 108 MPa",
+      "D) 118 MPa",
+    ],
+    correct: "A",
+    explanation: "Mean stress is 30 MPa and Mohr-circle radius is sqrt(50²+30²)≈58.3 MPa, so sigma_1≈88.3 MPa.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "A simply supported Euler-Bernoulli beam has a central point load. If its length doubles but its cross-section, material, and point load remain the same, by what factor does maximum deflection change?",
+    choices: [
+      "A) 2",
+      "B) 4",
+      "C) 16",
+      "D) 8",
+    ],
+    correct: "D",
+    explanation: "The midspan deflection is PL³/(48EI); doubling span multiplies deflection by 2³=8.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "A beam has linearly varying bending moment M(x). Assuming constant EI, what is the qualitative shape of its curvature distribution?",
+    choices: [
+      "A) Constant",
+      "B) Linear",
+      "C) Quadratic",
+      "D) Cubic",
+    ],
+    correct: "B",
+    explanation: "Euler-Bernoulli curvature satisfies kappa≈M/(EI); with constant EI, curvature has the same linear dependence as moment.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "A thin-walled closed circular tube and a solid shaft have the same material and outer radius. If the tube has less material, which torsional property is necessarily true?",
+    choices: [
+      "A) The tube always has higher torsional stiffness",
+      "B) The tube always has a lower shear modulus",
+      "C) The solid shaft has larger polar second moment of area",
+      "D) They have equal torsional stiffness",
+    ],
+    correct: "C",
+    explanation: "Removing the center reduces polar second moment J relative to a solid shaft with the same outer radius; both have the same material G.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "A material point in 2D has principal stresses 70 MPa and −30 MPa. What is the maximum in-plane shear stress magnitude?",
+    choices: [
+      "A) 50 MPa",
+      "B) 40 MPa",
+      "C) 70 MPa",
+      "D) 100 MPa",
+    ],
+    correct: "A",
+    explanation: "Maximum in-plane shear equals (sigma_1−sigma_2)/2=(70−(−30))/2=50 MPa.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "A plane-stress element has sigma_x=sigma_y=40 MPa and tau_xy=25 MPa. What is the von Mises equivalent stress (approximately)?",
+    choices: [
+      "A) 40 MPa",
+      "B) 59 MPa",
+      "C) 65 MPa",
+      "D) 76 MPa",
+    ],
+    correct: "B",
+    explanation: "For plane stress, sigma_vm=sqrt(sigma_x²−sigma_x sigma_y+sigma_y²+3tau²)=sqrt(1600+1875)=58.95 MPa.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "In a uniform rod subject to a suddenly applied and maintained axial load (ideal undamped single-degree-of-freedom approximation), what is the peak dynamic displacement relative to its static displacement?",
+    choices: [
+      "A) One half",
+      "B) Equal",
+      "C) Four times",
+      "D) Twice",
+    ],
+    correct: "D",
+    explanation: "For an undamped linear spring subject to a step force from rest, peak displacement is twice the static displacement.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "In a simply supported beam, a concentrated applied couple causes which change in the internal-force diagrams?",
+    choices: [
+      "A) A jump in shear force but continuous bending moment",
+      "B) A jump in both shear and bending moment",
+      "C) A jump in bending moment but no jump in shear",
+      "D) A linear change in shear across the couple",
+    ],
+    correct: "C",
+    explanation: "A pure concentrated moment creates a discontinuity in bending moment, while shear is unaffected away from other loading.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "An ideal frictionless disk rolls without slipping on a stationary surface. Which kinematic relation holds between center speed and angular speed?",
+    choices: [
+      "A) v=omega R",
+      "B) v=omega/R",
+      "C) v=2omega R",
+      "D) v=omega R²",
+    ],
+    correct: "A",
+    explanation: "The no-slip contact constraint gives the center-of-mass speed v=omega R in magnitude; whether rolling occurs requires appropriate dynamics.",
+  },
+  {
+    topic: "Mechanics",
+    difficulty: "Hard",
+    question: "For a linear-elastic isotropic solid, which pair of elastic constants is sufficient to determine the remaining elastic constants?",
+    choices: [
+      "A) Young's modulus and density",
+      "B) Shear modulus and yield stress",
+      "C) Bulk modulus and ultimate strength",
+      "D) Young's modulus and Poisson's ratio",
+    ],
+    correct: "D",
+    explanation: "For isotropic linear elasticity, E and nu determine G and K through elastic-constant identities.",
+  },
   {
     topic: "Aerospace",
     difficulty: "Easy",
-    question:
-      "Why are quaternions often preferred over Euler angles?",
+    question: "For a fixed-wing aircraft at steady, level, unaccelerated flight, what relationship must hold between lift and weight?",
     choices: [
-      "A) Smaller memory",
-      "B) Avoid gimbal lock",
-      "C) Easier visualization",
-      "D) Faster sensors"
+      "A) Lift exceeds weight by the drag force",
+      "B) Lift is equal to weight",
+      "C) Lift is equal to thrust",
+      "D) Lift is proportional to aircraft pitch angle",
     ],
     correct: "B",
-    explanation:
-      "Quaternions avoid singularities such as gimbal lock."
+    explanation: "Vertical force equilibrium in steady level flight requires lift equal to weight.",
   },
-
   {
-  topic: "Electrical",
-  difficulty: "Easy",
-  question:
-    "In a series circuit, what is the same through every component?",
-  choices: [
-    "A) Voltage",
-    "B) Current",
-    "C) Resistance",
-    "D) Power"
-  ],
-  correct: "B",
-  explanation:
-    "Current is the same through all components in a series circuit."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question:
-    "What does increasing proportional gain generally do in a feedback control system?",
-  choices: [
-    "A) Slows the response",
-    "B) Reduces responsiveness",
-    "C) Makes the system respond more aggressively",
-    "D) Removes all steady-state error"
-  ],
-  correct: "C",
-  explanation:
-    "Increasing proportional gain usually makes the system respond more aggressively, but too much gain can cause overshoot or instability."
-},
-{
-  topic: "Mechanics",
-  difficulty: "Easy",
-  question: "What is Hooke's Law?",
-  choices: [
-    "A) Stress is proportional to strain",
-    "B) Force equals mass times acceleration",
-    "C) Energy is conserved",
-    "D) Pressure equals force per area"
-  ],
-  correct: "A",
-  explanation:
-    "Hooke's Law states that stress is proportional to strain within the elastic region."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Easy",
-  question: "What happens when stress exceeds yield strength?",
-  choices: [
-    "A) Elastic deformation continues",
-    "B) Plastic deformation begins",
-    "C) Material immediately fractures",
-    "D) Strain becomes zero"
-  ],
-  correct: "B",
-  explanation:
-    "Exceeding yield strength causes permanent plastic deformation."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What does a factor of safety represent?",
-  choices: [
-    "A) Margin between design load and failure load",
-    "B) Maximum operating temperature",
-    "C) Elastic modulus",
-    "D) Material density"
-  ],
-  correct: "A",
-  explanation:
-    "Factor of safety provides a margin between expected loads and failure conditions."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What is the primary purpose of a free body diagram?",
-  choices: [
-    "A) Determine material properties",
-    "B) Show forces acting on a body",
-    "C) Compute stress directly",
-    "D) Measure strain"
-  ],
-  correct: "B",
-  explanation:
-    "Free body diagrams isolate components and visualize applied forces."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Easy",
-  question: "What generates lift on an aircraft wing?",
-  choices: [
-    "A) Pressure difference across the wing",
-    "B) Weight",
-    "C) Gravity",
-    "D) Structural stiffness"
-  ],
-  correct: "A",
-  explanation:
-    "Lift primarily results from pressure differences and momentum changes in airflow."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Easy",
-  question: "What does increasing angle of attack generally do?",
-  choices: [
-    "A) Decreases lift",
-    "B) Increases lift up to stall",
-    "C) Removes drag",
-    "D) Reduces wing area"
-  ],
-  correct: "B",
-  explanation:
-    "Lift increases with angle of attack until the wing stalls."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What is specific impulse used to measure?",
-  choices: [
-    "A) Engine fuel efficiency",
-    "B) Wing loading",
-    "C) Aircraft stability",
-    "D) Lift coefficient"
-  ],
-  correct: "A",
-  explanation:
-    "Specific impulse measures propulsion efficiency."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "Why are quaternions commonly used in spacecraft attitude control?",
-  choices: [
-    "A) Lower computational cost only",
-    "B) Avoid gimbal lock",
-    "C) Reduce mass",
-    "D) Increase thrust"
-  ],
-  correct: "B",
-  explanation:
-    "Quaternions avoid singularities like gimbal lock and provide stable attitude representation."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Easy",
-  question: "What remains constant in a series circuit?",
-  choices: [
-    "A) Voltage",
-    "B) Current",
-    "C) Resistance",
-    "D) Power"
-  ],
-  correct: "B",
-  explanation:
-    "Current is identical through all components in a series circuit."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Easy",
-  question: "What is Ohm's Law?",
-  choices: [
-    "A) V = IR",
-    "B) P = IV²",
-    "C) F = ma",
-    "D) E = mc²"
-  ],
-  correct: "A",
-  explanation:
-    "Ohm's Law relates voltage, current, and resistance."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What does a capacitor resist?",
-  choices: [
-    "A) Voltage changes",
-    "B) Current changes",
-    "C) Resistance changes",
-    "D) Power changes"
-  ],
-  correct: "A",
-  explanation:
-    "Capacitors oppose sudden voltage changes."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What is the purpose of an operational amplifier?",
-  choices: [
-    "A) Increase signal power",
-    "B) Amplify voltage differences",
-    "C) Store charge",
-    "D) Reduce resistance"
-  ],
-  correct: "B",
-  explanation:
-    "Op-amps amplify voltage differences between inputs."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question: "What is the purpose of feedback in a control system?",
-  choices: [
-    "A) Increase hardware cost",
-    "B) Reduce error",
-    "C) Increase power consumption",
-    "D) Eliminate sensors"
-  ],
-  correct: "B",
-  explanation:
-    "Feedback helps reduce error between desired and actual output."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question: "What does proportional gain primarily affect?",
-  choices: [
-    "A) System responsiveness",
-    "B) Sensor accuracy",
-    "C) Hardware size",
-    "D) Sampling rate"
-  ],
-  correct: "A",
-  explanation:
-    "Increasing proportional gain typically increases responsiveness."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What is steady-state error?",
-  choices: [
-    "A) Initial transient response",
-    "B) Difference between desired and actual output after settling",
-    "C) Maximum overshoot",
-    "D) Measurement noise"
-  ],
-  correct: "B",
-  explanation:
-    "Steady-state error is the remaining error after the system settles."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What does derivative gain primarily help reduce?",
-  choices: [
-    "A) Steady-state error",
-    "B) Overshoot",
-    "C) Sensor noise",
-    "D) System bandwidth"
-  ],
-  correct: "B",
-  explanation:
-    "Derivative gain adds damping and typically reduces overshoot."
-},
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "According to beam theory, bending stress is highest where?",
-  choices: [
-    "A) Neutral axis",
-    "B) Outer fibers",
-    "C) Beam center",
-    "D) Mid-thickness"
-  ],
-  correct: "B",
-  explanation:
-    "Bending stress is zero at the neutral axis and largest at the outermost fibers."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What does a Mohr's Circle represent?",
-  choices: [
-    "A) Thermal expansion",
-    "B) Stress transformation",
-    "C) Beam deflection",
-    "D) Fluid flow"
-  ],
-  correct: "B",
-  explanation:
-    "Mohr's Circle visualizes stress transformations and principal stresses."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "What primarily causes fatigue failure?",
-  choices: [
-    "A) One large static load",
-    "B) Repeated cyclic loading",
-    "C) High temperature only",
-    "D) Excessive stiffness"
-  ],
-  correct: "B",
-  explanation:
-    "Fatigue failure typically occurs due to repeated cyclic loading."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "Increasing the moment of inertia of a beam generally does what?",
-  choices: [
-    "A) Increases deflection",
-    "B) Reduces stiffness",
-    "C) Reduces deflection",
-    "D) Increases stress"
-  ],
-  correct: "C",
-  explanation:
-    "Beam deflection decreases as the moment of inertia increases."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What does the center of gravity affect most directly?",
-  choices: [
-    "A) Aircraft stability",
-    "B) Fuel consumption only",
-    "C) Wing area",
-    "D) Engine thrust"
-  ],
-  correct: "A",
-  explanation:
-    "Center of gravity strongly influences aircraft stability and control."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What happens if the center of gravity shifts too far aft?",
-  choices: [
-    "A) Stability increases",
-    "B) Aircraft becomes less stable",
-    "C) Lift decreases to zero",
-    "D) Drag disappears"
-  ],
-  correct: "B",
-  explanation:
-    "An aft center of gravity reduces stability and can make the aircraft difficult to control."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "What is the purpose of a Hohmann transfer?",
-  choices: [
-    "A) Maximize lift",
-    "B) Transfer efficiently between orbits",
-    "C) Increase spacecraft mass",
-    "D) Stabilize an aircraft"
-  ],
-  correct: "B",
-  explanation:
-    "A Hohmann transfer minimizes energy required to move between circular orbits."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "What does delta-V represent?",
-  choices: [
-    "A) Velocity error",
-    "B) Change in velocity capability",
-    "C) Engine pressure",
-    "D) Orbital radius"
-  ],
-  correct: "B",
-  explanation:
-    "Delta-V measures the total change in velocity available for maneuvers."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What happens to equivalent resistance in a parallel circuit?",
-  choices: [
-    "A) Increases",
-    "B) Remains constant",
-    "C) Becomes greater than largest resistor",
-    "D) Decreases"
-  ],
-  correct: "D",
-  explanation:
-    "Equivalent resistance decreases when resistors are added in parallel."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What does an inductor resist?",
-  choices: [
-    "A) Voltage changes",
-    "B) Current changes",
-    "C) Resistance changes",
-    "D) Frequency changes"
-  ],
-  correct: "B",
-  explanation:
-    "Inductors oppose sudden changes in current."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "What is aliasing in signal processing?",
-  choices: [
-    "A) Signal amplification",
-    "B) Distortion from insufficient sampling",
-    "C) Increased frequency resolution",
-    "D) Voltage saturation"
-  ],
-  correct: "B",
-  explanation:
-    "Aliasing occurs when a signal is sampled below the Nyquist frequency."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "What is the Nyquist sampling criterion?",
-  choices: [
-    "A) Sample at half the signal frequency",
-    "B) Sample above twice the highest frequency",
-    "C) Sample once per cycle",
-    "D) Sample below bandwidth"
-  ],
-  correct: "B",
-  explanation:
-    "Sampling frequency must exceed twice the highest signal frequency."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What does integral gain primarily reduce?",
-  choices: [
-    "A) Overshoot",
-    "B) Steady-state error",
-    "C) Noise",
-    "D) Bandwidth"
-  ],
-  correct: "B",
-  explanation:
-    "Integral action accumulates error and reduces steady-state error."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What does a pole in the right-half plane indicate?",
-  choices: [
-    "A) Stable behavior",
-    "B) Neutral stability",
-    "C) Instability",
-    "D) Reduced bandwidth"
-  ],
-  correct: "C",
-  explanation:
-    "Poles in the right-half plane indicate an unstable system."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What is the purpose of a Bode plot?",
-  choices: [
-    "A) Analyze frequency response",
-    "B) Measure beam stress",
-    "C) Determine fuel efficiency",
-    "D) Compute orbital transfers"
-  ],
-  correct: "A",
-  explanation:
-    "Bode plots characterize gain and phase versus frequency."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What does increasing phase margin generally improve?",
-  choices: [
-    "A) Instability",
-    "B) System robustness",
-    "C) Sensor accuracy",
-    "D) Sampling rate"
-  ],
-  correct: "B",
-  explanation:
-    "Larger phase margin generally improves stability robustness."
-},
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "What happens to stress concentration around a sharp corner?",
-  choices: [
-    "A) It decreases",
-    "B) It remains unchanged",
-    "C) It increases",
-    "D) It becomes zero"
-  ],
-  correct: "C",
-  explanation:
-    "Sharp corners create stress concentrations which increase local stresses."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What primarily causes an aircraft stall?",
-  choices: [
-    "A) Excessive speed",
-    "B) Flow separation over the wing",
-    "C) Insufficient thrust",
-    "D) High altitude"
-  ],
-  correct: "B",
-  explanation:
-    "A stall occurs when airflow separates from the wing surface."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What is Mach number?",
-  choices: [
-    "A) Aircraft mass divided by thrust",
-    "B) Speed relative to the speed of sound",
-    "C) Lift divided by drag",
-    "D) Dynamic pressure ratio"
-  ],
-  correct: "B",
-  explanation:
-    "Mach number is the ratio of velocity to local speed of sound."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "What does C3 represent in orbital mechanics?",
-  choices: [
-    "A) Orbital altitude",
-    "B) Characteristic energy",
-    "C) Specific impulse",
-    "D) Transfer time"
-  ],
-  correct: "B",
-  explanation:
-    "C3 is characteristic energy and represents excess launch energy."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What is Kirchhoff's Current Law?",
-  choices: [
-    "A) Voltage drops equal resistance",
-    "B) Sum of currents entering equals sum leaving",
-    "C) Current equals voltage divided by resistance",
-    "D) Power is conserved"
-  ],
-  correct: "B",
-  explanation:
-    "KCL states that current entering a node equals current leaving it."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "What is the purpose of a low-pass filter?",
-  choices: [
-    "A) Remove low frequencies",
-    "B) Allow high frequencies only",
-    "C) Pass low frequencies and attenuate high frequencies",
-    "D) Increase signal power"
-  ],
-  correct: "C",
-  explanation:
-    "Low-pass filters allow lower frequencies while reducing higher-frequency components."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What is overshoot in a control system?",
-  choices: [
-    "A) Output exceeding desired value",
-    "B) Steady-state error",
-    "C) Sensor delay",
-    "D) Noise amplification"
-  ],
-  correct: "A",
-  explanation:
-    "Overshoot occurs when system response exceeds the desired output."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What is a transfer function?",
-  choices: [
-    "A) Ratio of output to input in Laplace domain",
-    "B) Change in system energy",
-    "C) Difference between signals",
-    "D) System damping coefficient"
-  ],
-  correct: "A",
-  explanation:
-    "Transfer functions describe system input-output relationships in the Laplace domain."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What property measures resistance to deformation?",
-  choices: [
-    "A) Density",
-    "B) Elastic modulus",
-    "C) Thermal conductivity",
-    "D) Specific heat"
-  ],
-  correct: "B",
-  explanation:
-    "Elastic modulus measures material stiffness and resistance to deformation."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "Why are reaction wheels used on spacecraft?",
-  choices: [
-    "A) Increase thrust",
-    "B) Control attitude without propellant",
-    "C) Reduce drag",
-    "D) Increase orbital velocity"
-  ],
-  correct: "B",
-  explanation:
-    "Reaction wheels control spacecraft orientation using angular momentum exchange."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Easy",
-  question: "When answering 'Tell me about yourself,' what should you focus on?",
-  choices: [
-    "A) Personal hobbies only",
-    "B) Chronological life story",
-    "C) Relevant experiences and goals",
-    "D) Family background"
-  ],
-  correct: "C",
-  explanation:
-    "Interviewers usually want a concise summary of relevant experience and direction."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "When discussing a difficult project, what interview structure works best?",
-  choices: [
-    "A) STAR method",
-    "B) Random storytelling",
-    "C) Technical equations only",
-    "D) Start with conclusions"
-  ],
-  correct: "A",
-  explanation:
-    "STAR (Situation, Task, Action, Result) provides clear and structured responses."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "If an interviewer asks about failure, what should you emphasize?",
-  choices: [
-    "A) Blaming teammates",
-    "B) Hiding mistakes",
-    "C) Lessons learned and improvement",
-    "D) Avoid answering"
-  ],
-  correct: "C",
-  explanation:
-    "Interviewers typically value growth, accountability, and reflection."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "If two team members strongly disagree on an engineering approach, what is generally best?",
-  choices: [
-    "A) Ignore the disagreement",
-    "B) Let seniority decide automatically",
-    "C) Use data and technical trade studies",
-    "D) Choose randomly"
-  ],
-  correct: "C",
-  explanation:
-    "Engineering decisions are usually strongest when based on objective trade studies and data."
-}
-,
-
-// ==================== ADDITIONAL MECHANICS QUESTIONS ====================
-
-{
-  topic: "Mechanics",
-  difficulty: "Easy",
-  question: "For a rigid body to be in static equilibrium, what must be true?",
-  choices: [
-    "A) Only the net force must be zero",
-    "B) Only the net moment must be zero",
-    "C) Both the net force and net moment must be zero",
-    "D) The body must have zero mass"
-  ],
-  correct: "C",
-  explanation:
-    "Static equilibrium requires both the sum of external forces and the sum of external moments to be zero."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Easy",
-  question: "What is the physical meaning of Young's modulus?",
-  choices: [
-    "A) Resistance to elastic deformation",
-    "B) Resistance to heat flow",
-    "C) Energy absorbed before fracture",
-    "D) Resistance to corrosion"
-  ],
-  correct: "A",
-  explanation:
-    "Young's modulus is the slope of the linear elastic stress-strain curve and measures material stiffness."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Easy",
-  question: "Which mode of heat transfer can occur through a vacuum?",
-  choices: [
-    "A) Conduction only",
-    "B) Convection only",
-    "C) Radiation",
-    "D) Conduction and convection only"
-  ],
-  correct: "C",
-  explanation:
-    "Thermal radiation is electromagnetic energy and does not require a material medium."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Easy",
-  question: "What does the coefficient of friction relate?",
-  choices: [
-    "A) Friction force to normal force",
-    "B) Normal force to weight only",
-    "C) Stress to strain",
-    "D) Torque to angular acceleration"
-  ],
-  correct: "A",
-  explanation:
-    "In the classical dry-friction model, the limiting friction force is proportional to the normal force through the coefficient of friction."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "Why is an I-beam efficient at resisting bending about its strong axis?",
-  choices: [
-    "A) Most material is placed near the neutral axis",
-    "B) Most material is placed far from the neutral axis",
-    "C) Its cross-sectional area is always larger than a solid beam",
-    "D) It eliminates shear stress"
-  ],
-  correct: "B",
-  explanation:
-    "Placing material farther from the neutral axis increases the second moment of area, improving bending stiffness and reducing bending stress for a given moment."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "For an ideal undamped single-degree-of-freedom mass-spring system, what happens to natural frequency if stiffness increases while mass remains constant?",
-  choices: [
-    "A) It decreases",
-    "B) It remains unchanged",
-    "C) It increases",
-    "D) It becomes zero"
-  ],
-  correct: "C",
-  explanation:
-    "Natural frequency is proportional to the square root of stiffness divided by mass, so increasing stiffness raises the natural frequency."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What is resonance in a mechanical system?",
-  choices: [
-    "A) A response caused only by static loading",
-    "B) A large response when forcing frequency is near a natural frequency",
-    "C) Permanent deformation after yielding",
-    "D) Complete elimination of vibration"
-  ],
-  correct: "B",
-  explanation:
-    "Resonance occurs when excitation is near a natural frequency, which can produce a large vibration response, especially when damping is low."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "For steady incompressible flow through a pipe that narrows, what generally happens to flow velocity?",
-  choices: [
-    "A) It decreases",
-    "B) It increases",
-    "C) It becomes zero",
-    "D) It is independent of area"
-  ],
-  correct: "B",
-  explanation:
-    "Conservation of mass requires the product of cross-sectional area and average velocity to remain constant for steady incompressible flow."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What does Reynolds number primarily compare in a fluid flow?",
-  choices: [
-    "A) Pressure forces to gravity forces",
-    "B) Inertial effects to viscous effects",
-    "C) Thermal energy to kinetic energy",
-    "D) Lift to drag"
-  ],
-  correct: "B",
-  explanation:
-    "Reynolds number measures the relative importance of inertial and viscous effects and helps characterize laminar versus turbulent behavior."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "In a simple tensile test, Poisson's ratio relates which quantities?",
-  choices: [
-    "A) Axial stress and axial strain",
-    "B) Lateral strain and axial strain",
-    "C) Shear stress and shear strain",
-    "D) Yield stress and ultimate stress"
-  ],
-  correct: "B",
-  explanation:
-    "Poisson's ratio is the negative ratio of transverse strain to axial strain under uniaxial loading."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "What does the first law of thermodynamics express for a closed system?",
-  choices: [
-    "A) Conservation of energy",
-    "B) Conservation of momentum only",
-    "C) Entropy must always remain constant",
-    "D) Pressure must equal temperature"
-  ],
-  correct: "A",
-  explanation:
-    "The first law is an energy balance: changes in a system's energy result from heat transfer and work interactions."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Medium",
-  question: "Why are fillets commonly added at geometric transitions in mechanical parts?",
-  choices: [
-    "A) To increase stress concentration",
-    "B) To reduce local stress concentration",
-    "C) To eliminate all bending",
-    "D) To make Young's modulus larger"
-  ],
-  correct: "B",
-  explanation:
-    "A gradual radius reduces the severity of abrupt geometry changes and therefore lowers local stress concentration."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "A slender column is susceptible to Euler buckling. Which change most directly increases its ideal critical buckling load?",
-  choices: [
-    "A) Increasing its effective length",
-    "B) Decreasing its elastic modulus",
-    "C) Increasing its second moment of area",
-    "D) Increasing its thermal conductivity"
-  ],
-  correct: "C",
-  explanation:
-    "Euler critical load is proportional to EI and inversely proportional to effective length squared, so increasing the second moment of area increases buckling resistance."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "At a point in plane stress, principal planes are characterized by what condition?",
-  choices: [
-    "A) Normal stress is always zero",
-    "B) Shear stress is zero",
-    "C) Von Mises stress is zero",
-    "D) Hydrostatic stress is maximum"
-  ],
-  correct: "B",
-  explanation:
-    "Principal stresses act on orientations where the shear stress component is zero."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "Why does adding damping near resonance reduce the peak vibration amplitude of a forced oscillator?",
-  choices: [
-    "A) It removes the system's mass",
-    "B) It dissipates mechanical energy",
-    "C) It makes stiffness infinite",
-    "D) It eliminates the forcing function"
-  ],
-  correct: "B",
-  explanation:
-    "Damping dissipates energy from the oscillating system, limiting the response amplitude near resonance."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "For a ductile material under multiaxial loading, what is the von Mises criterion commonly used to predict?",
-  choices: [
-    "A) Onset of yielding",
-    "B) Thermal expansion",
-    "C) Natural frequency",
-    "D) Fluid cavitation"
-  ],
-  correct: "A",
-  explanation:
-    "The von Mises criterion compares the multiaxial stress state with a material's uniaxial yield strength to estimate yielding."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "In fully developed laminar flow through a circular pipe, where is the fluid velocity highest?",
-  choices: [
-    "A) At the wall",
-    "B) At the centerline",
-    "C) Uniformly everywhere",
-    "D) Halfway between the wall and centerline only"
-  ],
-  correct: "B",
-  explanation:
-    "The no-slip condition makes velocity zero at the wall, while the parabolic laminar velocity profile reaches its maximum at the centerline."
-},
-
-{
-  topic: "Mechanics",
-  difficulty: "Hard",
-  question: "For a beam under pure bending, why is normal stress zero at the neutral axis?",
-  choices: [
-    "A) The bending moment is zero there",
-    "B) Longitudinal strain is zero there",
-    "C) The elastic modulus becomes zero there",
-    "D) Shear force is always maximum there"
-  ],
-  correct: "B",
-  explanation:
-    "In classical beam bending, longitudinal strain varies linearly through the depth and is zero at the neutral axis, so the corresponding normal stress is zero."
-},
-
-// ==================== ADDITIONAL AEROSPACE QUESTIONS ====================
-
-{
-  topic: "Aerospace",
-  difficulty: "Easy",
-  question: "What does the lift-to-drag ratio indicate?",
-  choices: [
-    "A) Aerodynamic efficiency",
-    "B) Engine temperature",
-    "C) Structural stiffness",
-    "D) Fuel density"
-  ],
-  correct: "A",
-  explanation:
-    "Lift-to-drag ratio measures how much useful lift is produced relative to aerodynamic drag."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Easy",
-  question: "Which primary flight control surface produces roll on a conventional airplane?",
-  choices: [
-    "A) Rudder",
-    "B) Elevator",
-    "C) Ailerons",
-    "D) Flaps"
-  ],
-  correct: "C",
-  explanation:
-    "Differential aileron deflection changes lift on the two wings and creates a rolling moment."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Easy",
-  question: "What is the primary purpose of an aircraft elevator?",
-  choices: [
-    "A) Control pitch",
-    "B) Control yaw",
-    "C) Control roll",
-    "D) Increase engine thrust"
-  ],
-  correct: "A",
-  explanation:
-    "The elevator changes the aircraft's pitching moment and is a primary longitudinal control surface."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Easy",
-  question: "What is dynamic pressure proportional to?",
-  choices: [
-    "A) Density times velocity squared",
-    "B) Density divided by velocity",
-    "C) Temperature times altitude only",
-    "D) Mach number divided by pressure"
-  ],
-  correct: "A",
-  explanation:
-    "Dynamic pressure is one-half density times velocity squared, so it increases strongly with airspeed."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "Why does induced drag generally decrease as an aircraft flies faster at the same weight in steady level flight?",
-  choices: [
-    "A) Less lift coefficient is required",
-    "B) Parasite drag becomes zero",
-    "C) Air density always increases",
-    "D) Wing area increases"
-  ],
-  correct: "A",
-  explanation:
-    "At higher speed, the required lift can be produced at a lower lift coefficient, reducing induced drag."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What is the primary purpose of wing sweep on a high-speed aircraft?",
-  choices: [
-    "A) Delay compressibility effects associated with transonic flow",
-    "B) Eliminate induced drag at all speeds",
-    "C) Make the aircraft statically unstable",
-    "D) Eliminate the need for a vertical tail"
-  ],
-  correct: "A",
-  explanation:
-    "Sweep reduces the airflow component normal to the leading edge and can delay important compressibility effects to higher freestream Mach numbers."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "For positive longitudinal static stability, where is the center of gravity generally located relative to the neutral point?",
-  choices: [
-    "A) Aft of the neutral point",
-    "B) Forward of the neutral point",
-    "C) Exactly at the aerodynamic center in all cases",
-    "D) Its location is unrelated to stability"
-  ],
-  correct: "B",
-  explanation:
-    "A conventional aircraft has positive static margin when its center of gravity lies forward of the neutral point."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What does the rocket equation show most directly?",
-  choices: [
-    "A) Delta-V depends logarithmically on mass ratio",
-    "B) Lift depends only on wing area",
-    "C) Orbital period is independent of radius",
-    "D) Drag is independent of velocity"
-  ],
-  correct: "A",
-  explanation:
-    "The Tsiolkovsky rocket equation relates achievable delta-V to effective exhaust velocity and the logarithm of initial-to-final mass ratio."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "For a circular orbit, what happens to orbital speed as orbital radius increases?",
-  choices: [
-    "A) It increases",
-    "B) It decreases",
-    "C) It remains constant",
-    "D) It becomes independent of gravity"
-  ],
-  correct: "B",
-  explanation:
-    "Circular orbital speed is proportional to the inverse square root of orbital radius, so higher circular orbits have lower orbital speed."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What is the primary function of a spacecraft star tracker?",
-  choices: [
-    "A) Measure attitude using observed star patterns",
-    "B) Produce propulsion",
-    "C) Measure propellant mass directly",
-    "D) Generate electrical power"
-  ],
-  correct: "A",
-  explanation:
-    "Star trackers compare observed star fields with a catalog to provide precise spacecraft attitude information."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "Why is a converging-diverging nozzle used in many rocket engines?",
-  choices: [
-    "A) To accelerate compressible exhaust to supersonic speed under appropriate conditions",
-    "B) To eliminate combustion",
-    "C) To reduce exhaust velocity to zero",
-    "D) To make chamber pressure equal atmospheric pressure at all altitudes"
-  ],
-  correct: "A",
-  explanation:
-    "A converging-diverging nozzle chokes the flow at the throat and can expand it to supersonic velocity downstream."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Medium",
-  question: "What is the purpose of trim in steady aircraft flight?",
-  choices: [
-    "A) Establish a condition with no sustained control force or moment required from the pilot",
-    "B) Maximize stall angle",
-    "C) Eliminate all aerodynamic drag",
-    "D) Increase structural weight"
-  ],
-  correct: "A",
-  explanation:
-    "Trim balances forces and moments for the desired steady flight condition so continuous pilot control force is minimized."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "A spacecraft in a circular orbit performs a short prograde burn. Immediately after the burn, what point of the new elliptical orbit is the spacecraft near?",
-  choices: [
-    "A) Apoapsis",
-    "B) Periapsis",
-    "C) The new orbit's center",
-    "D) A Lagrange point"
-  ],
-  correct: "B",
-  explanation:
-    "A prograde burn increases velocity at the burn point and raises the opposite side of the orbit, making the burn location the periapsis of the new ellipse."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "Why is a plane-change maneuver generally expensive in delta-V at high orbital speed?",
-  choices: [
-    "A) The required velocity-vector change grows with orbital speed",
-    "B) Gravity disappears at high speed",
-    "C) Spacecraft mass becomes infinite",
-    "D) Specific impulse becomes zero"
-  ],
-  correct: "A",
-  explanation:
-    "A plane change rotates the velocity vector; for a given change in inclination, the required delta-V increases with the magnitude of orbital velocity."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "In a conventional statically stable aircraft, what pitching-moment response should a small increase in angle of attack tend to produce?",
-  choices: [
-    "A) A restoring nose-down moment",
-    "B) A destabilizing nose-up moment",
-    "C) No pitching moment under any condition",
-    "D) A pure rolling moment"
-  ],
-  correct: "A",
-  explanation:
-    "Positive longitudinal static stability requires the aircraft to generate a restoring pitching tendency after a small angle-of-attack disturbance."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "What is the Oberth effect?",
-  choices: [
-    "A) A propulsive burn produces a larger change in orbital energy when performed at high speed",
-    "B) Aerodynamic lift increases linearly forever with angle of attack",
-    "C) Spacecraft attitude changes without angular momentum exchange",
-    "D) Rocket thrust becomes independent of exhaust velocity"
-  ],
-  correct: "A",
-  explanation:
-    "For the same impulsive delta-V, a burn made where orbital speed is high produces a larger change in specific orbital energy."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "Why can a reaction wheel eventually require momentum unloading?",
-  choices: [
-    "A) Persistent external torques can drive the wheel toward its speed limit",
-    "B) Reaction wheels continuously consume propellant",
-    "C) The spacecraft loses all angular momentum after one maneuver",
-    "D) The wheel cannot generate torque at low speed"
-  ],
-  correct: "A",
-  explanation:
-    "Environmental torques can accumulate angular momentum in the wheel until it approaches saturation, requiring another actuator to unload momentum."
-},
-
-{
-  topic: "Aerospace",
-  difficulty: "Hard",
-  question: "For a subsonic aircraft at constant weight and altitude, flying substantially slower than the speed for maximum lift-to-drag ratio generally causes what?",
-  choices: [
-    "A) Induced drag to become increasingly important",
-    "B) Induced drag to vanish",
-    "C) Parasite drag to become the only drag source",
-    "D) Required lift to become zero"
-  ],
-  correct: "A",
-  explanation:
-    "At lower airspeed the aircraft needs a higher lift coefficient to support its weight, which increases induced drag."
-},
-
-// ==================== ADDITIONAL ELECTRICAL QUESTIONS ====================
-
-{
-  topic: "Electrical",
-  difficulty: "Easy",
-  question: "What electrical quantity is measured in watts?",
-  choices: [
-    "A) Voltage",
-    "B) Current",
-    "C) Power",
-    "D) Resistance"
-  ],
-  correct: "C",
-  explanation:
-    "The watt is the SI unit of power, representing energy transferred or converted per unit time."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Easy",
-  question: "In an ideal parallel circuit, what quantity is the same across every branch?",
-  choices: [
-    "A) Current",
-    "B) Voltage",
-    "C) Resistance",
-    "D) Power"
-  ],
-  correct: "B",
-  explanation:
-    "All branches connected between the same two nodes have the same voltage difference."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Easy",
-  question: "What is the main purpose of a fuse?",
-  choices: [
-    "A) Increase circuit voltage",
-    "B) Protect against excessive current",
-    "C) Store electrical charge",
-    "D) Amplify signals"
-  ],
-  correct: "B",
-  explanation:
-    "A fuse opens the circuit when current becomes high enough to melt its element, helping protect wiring and equipment."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Easy",
-  question: "What type of current periodically reverses direction?",
-  choices: [
-    "A) Direct current",
-    "B) Alternating current",
-    "C) Leakage current only",
-    "D) Static charge"
-  ],
-  correct: "B",
-  explanation:
-    "Alternating current changes direction periodically, while ideal direct current maintains one direction."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What does Kirchhoff's Voltage Law state around a closed loop?",
-  choices: [
-    "A) The algebraic sum of voltages is zero",
-    "B) Current is identical in every branch",
-    "C) Resistance must be zero",
-    "D) Power must be negative"
-  ],
-  correct: "A",
-  explanation:
-    "Kirchhoff's Voltage Law follows conservation of energy: voltage rises and drops sum algebraically to zero around a closed loop."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "In sinusoidal steady state, what is the phase relationship between voltage and current for an ideal capacitor?",
-  choices: [
-    "A) Current leads voltage by 90 degrees",
-    "B) Current lags voltage by 90 degrees",
-    "C) Current and voltage are always 180 degrees apart",
-    "D) Current and voltage are always in phase"
-  ],
-  correct: "A",
-  explanation:
-    "For an ideal capacitor under sinusoidal excitation, current leads voltage by 90 degrees."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "In sinusoidal steady state, what is the phase relationship between voltage and current for an ideal inductor?",
-  choices: [
-    "A) Current leads voltage by 90 degrees",
-    "B) Current lags voltage by 90 degrees",
-    "C) They are always in phase",
-    "D) Voltage is always zero"
-  ],
-  correct: "B",
-  explanation:
-    "For an ideal inductor under sinusoidal excitation, current lags voltage by 90 degrees."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What is the primary function of a diode in its simplest use?",
-  choices: [
-    "A) Preferentially conduct current in one direction",
-    "B) Store magnetic energy",
-    "C) Measure frequency",
-    "D) Generate mechanical torque"
-  ],
-  correct: "A",
-  explanation:
-    "A diode conducts readily when forward biased and strongly limits current when reverse biased within its operating limits."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What does RMS voltage represent for a periodic AC waveform?",
-  choices: [
-    "A) The DC-equivalent value for producing the same average power in a resistor",
-    "B) The maximum instantaneous voltage only",
-    "C) The frequency of the waveform",
-    "D) The phase angle of the waveform"
-  ],
-  correct: "A",
-  explanation:
-    "RMS expresses the effective value of an AC waveform in terms of equivalent resistive heating or power."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What is the purpose of a pull-up resistor on a digital input?",
-  choices: [
-    "A) Define a known high logic state when no device actively drives the line",
-    "B) Increase the clock frequency",
-    "C) Convert AC directly to DC",
-    "D) Eliminate all current in the circuit"
-  ],
-  correct: "A",
-  explanation:
-    "A pull-up resistor prevents a high-impedance input from floating by weakly biasing it toward the supply voltage."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What is the cutoff frequency of a filter commonly associated with?",
-  choices: [
-    "A) The transition between passband and attenuated behavior",
-    "B) The maximum possible supply voltage",
-    "C) The circuit's physical temperature",
-    "D) The number of logic gates"
-  ],
-  correct: "A",
-  explanation:
-    "Cutoff frequency identifies a characteristic boundary between the filter's passband and attenuation region, often defined at a specified gain such as -3 dB."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Medium",
-  question: "What does a transistor commonly enable in electronic circuits?",
-  choices: [
-    "A) Switching and amplification",
-    "B) Mechanical energy storage only",
-    "C) Elimination of all resistance",
-    "D) Conversion of mass into charge"
-  ],
-  correct: "A",
-  explanation:
-    "Transistors are fundamental active devices used to switch signals and amplify electrical quantities."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "A first-order RC low-pass filter is driven far above its cutoff frequency. What happens to the output magnitude relative to the input?",
-  choices: [
-    "A) It is strongly attenuated",
-    "B) It becomes infinitely large",
-    "C) It is unchanged at all frequencies",
-    "D) It becomes DC regardless of the input"
-  ],
-  correct: "A",
-  explanation:
-    "A low-pass filter increasingly attenuates signals above its cutoff frequency."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "Why is impedance matching important in high-frequency transmission lines?",
-  choices: [
-    "A) It reduces signal reflections",
-    "B) It guarantees zero electrical resistance",
-    "C) It removes all propagation delay",
-    "D) It makes signal frequency irrelevant"
-  ],
-  correct: "A",
-  explanation:
-    "When load impedance differs from the transmission line's characteristic impedance, part of a traveling wave is reflected."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "What does a negative decibel value for a voltage gain magnitude indicate when input and output use the same reference impedance?",
-  choices: [
-    "A) The output magnitude is attenuated relative to the input",
-    "B) The output has infinite power",
-    "C) The circuit is necessarily unstable",
-    "D) The signal has zero frequency"
-  ],
-  correct: "A",
-  explanation:
-    "A gain magnitude below unity corresponds to a negative value in decibels, indicating attenuation."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "Why is an anti-aliasing filter commonly placed before an analog-to-digital converter?",
-  choices: [
-    "A) To attenuate frequency content that cannot be represented at the chosen sampling rate",
-    "B) To increase the signal above infinite frequency",
-    "C) To eliminate quantization entirely",
-    "D) To convert digital data back to analog"
-  ],
-  correct: "A",
-  explanation:
-    "The analog filter suppresses frequency components above the usable Nyquist band so they do not fold into lower frequencies after sampling."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "For an ideal inverting operational-amplifier circuit operating in its linear region, what primarily sets the closed-loop voltage gain?",
-  choices: [
-    "A) The ratio of feedback resistance to input resistance",
-    "B) The op-amp package color",
-    "C) Supply current alone",
-    "D) The input frequency regardless of component values"
-  ],
-  correct: "A",
-  explanation:
-    "With ideal negative feedback, the inverting amplifier gain is determined by the negative ratio of feedback resistance to input resistance."
-},
-
-{
-  topic: "Electrical",
-  difficulty: "Hard",
-  question: "What is quantization error in an analog-to-digital converter?",
-  choices: [
-    "A) Error caused by representing a continuous amplitude with discrete digital levels",
-    "B) Error caused only by incorrect wire color",
-    "C) The propagation speed of an electromagnetic wave",
-    "D) The phase shift of an ideal resistor"
-  ],
-  correct: "A",
-  explanation:
-    "Finite ADC resolution maps continuous input amplitudes to discrete codes, introducing a bounded quantization difference."
-},
-
-// ==================== ADDITIONAL CONTROLS QUESTIONS ====================
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question: "What is the setpoint in a feedback control system?",
-  choices: [
-    "A) The desired value of the controlled output",
-    "B) The sensor noise level",
-    "C) The plant mass",
-    "D) The sampling error only"
-  ],
-  correct: "A",
-  explanation:
-    "The setpoint or reference specifies the desired output that the controller attempts to track."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question: "What is the plant in a control system?",
-  choices: [
-    "A) The physical process or system being controlled",
-    "B) Only the user interface",
-    "C) The desired reference signal",
-    "D) A mathematical error in the sensor"
-  ],
-  correct: "A",
-  explanation:
-    "The plant is the physical system or process whose behavior the controller is intended to regulate."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question: "What signal is commonly formed by subtracting the measured output from the reference input?",
-  choices: [
-    "A) Error signal",
-    "B) Noise floor",
-    "C) Natural frequency",
-    "D) Feedforward gain"
-  ],
-  correct: "A",
-  explanation:
-    "The tracking error is commonly defined as the difference between the desired reference and measured output."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Easy",
-  question: "What is an open-loop control system missing compared with a typical closed-loop system?",
-  choices: [
-    "A) Output feedback used to correct error",
-    "B) An input",
-    "C) A physical plant",
-    "D) Any form of actuation"
-  ],
-  correct: "A",
-  explanation:
-    "Open-loop control does not use measured output feedback to adjust the command based on tracking error."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What is integral windup?",
-  choices: [
-    "A) Excessive accumulation of integral action while an actuator is saturated",
-    "B) A method for increasing sensor bandwidth",
-    "C) A type of mechanical resonance",
-    "D) A way to remove all model uncertainty"
-  ],
-  correct: "A",
-  explanation:
-    "When an actuator saturates, the integral term may continue accumulating error, causing excessive control action and poor recovery unless anti-windup measures are used."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "Why can derivative action make a controller sensitive to measurement noise?",
-  choices: [
-    "A) Differentiation emphasizes rapid high-frequency changes",
-    "B) Differentiation removes all high-frequency content",
-    "C) Derivative gain integrates the error",
-    "D) Measurement noise is always constant"
-  ],
-  correct: "A",
-  explanation:
-    "Derivative action responds strongly to rapid changes, so high-frequency measurement noise can be amplified."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What does settling time measure?",
-  choices: [
-    "A) How long the response takes to enter and remain within a specified band around its final value",
-    "B) The maximum actuator voltage only",
-    "C) The steady-state gain only",
-    "D) The number of system states"
-  ],
-  correct: "A",
-  explanation:
-    "Settling time characterizes how quickly the transient response decays sufficiently close to its final value."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What is a state variable in a dynamic system?",
-  choices: [
-    "A) A variable that is part of a minimal set describing the system's internal condition",
-    "B) Only the commanded output",
-    "C) A constant that can never change",
-    "D) A sensor calibration label"
-  ],
-  correct: "A",
-  explanation:
-    "State variables form a set of quantities whose current values, together with inputs, determine the system's future evolution in a state-space model."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What does controllability describe?",
-  choices: [
-    "A) Whether the system state can be driven as desired using available inputs",
-    "B) Whether every state is directly measured",
-    "C) Whether sensor noise is zero",
-    "D) Whether the plant has no dynamics"
-  ],
-  correct: "A",
-  explanation:
-    "Controllability concerns the ability of the input to move the system state through the state space."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What does observability describe?",
-  choices: [
-    "A) Whether the internal state can be inferred from available outputs over time",
-    "B) Whether the actuator can reach saturation",
-    "C) Whether the reference is constant",
-    "D) Whether all poles are exactly at zero"
-  ],
-  correct: "A",
-  explanation:
-    "An observable system contains enough output information to reconstruct its internal state over time."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "What is the main purpose of feedforward control?",
-  choices: [
-    "A) Anticipate known commands or disturbances without waiting for feedback error",
-    "B) Eliminate the plant model",
-    "C) Guarantee stability in every possible system",
-    "D) Replace every sensor"
-  ],
-  correct: "A",
-  explanation:
-    "Feedforward uses known inputs or disturbances to command corrective action proactively, often complementing feedback."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Medium",
-  question: "For a standard continuous-time second-order system, increasing damping ratio generally has what effect on overshoot?",
-  choices: [
-    "A) It generally reduces overshoot",
-    "B) It always increases overshoot",
-    "C) It has no relationship to overshoot",
-    "D) It makes the system nonlinear"
-  ],
-  correct: "A",
-  explanation:
-    "For the usual underdamped second-order model, greater damping ratio reduces the oscillatory character and peak overshoot."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "For a continuous-time linear time-invariant system, what do eigenvalues of the state matrix correspond to?",
-  choices: [
-    "A) The system's natural modes or poles",
-    "B) Only the input magnitude",
-    "C) Sensor calibration constants",
-    "D) The reference trajectory"
-  ],
-  correct: "A",
-  explanation:
-    "The eigenvalues of the state matrix determine the natural modal behavior and correspond to the system poles in a minimal state-space realization."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What is the separation principle in linear control and estimation?",
-  choices: [
-    "A) Under standard conditions, state-feedback controller and observer dynamics can be designed independently",
-    "B) Sensors and actuators must be physically separated",
-    "C) Proportional and integral gains must always be equal",
-    "D) Stable poles must be separated by exactly one radian per second"
-  ],
-  correct: "A",
-  explanation:
-    "For a controllable and observable linear system, state-feedback and observer gains can be designed separately while the combined estimator-controller retains the corresponding eigenvalue sets."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What is the Kalman filter designed to do?",
-  choices: [
-    "A) Estimate system states by combining a dynamic model with noisy measurements",
-    "B) Eliminate all uncertainty from any nonlinear system",
-    "C) Replace actuators with sensors",
-    "D) Compute only open-loop transfer functions"
-  ],
-  correct: "A",
-  explanation:
-    "The Kalman filter recursively combines model predictions with measurements while accounting for modeled process and measurement uncertainty."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "What does gain margin indicate in frequency-domain stability analysis?",
-  choices: [
-    "A) How much loop gain can increase before reaching the stability boundary under the standard definition",
-    "B) The amount of sensor bias",
-    "C) The plant's physical mass",
-    "D) The controller sampling period"
-  ],
-  correct: "A",
-  explanation:
-    "Gain margin measures relative stability by indicating the factor or decibel amount by which loop gain can increase before the closed loop reaches instability under standard assumptions."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "Why can adding integral action reduce steady-state error but worsen transient behavior?",
-  choices: [
-    "A) It adds another dynamic state and phase lag that can reduce stability margins",
-    "B) It removes every system pole",
-    "C) It always reduces controller gain to zero",
-    "D) It makes feedback unnecessary"
-  ],
-  correct: "A",
-  explanation:
-    "Integral action improves low-frequency tracking but introduces additional dynamics that can increase overshoot or reduce stability margins if not tuned carefully."
-},
-
-{
-  topic: "Controls",
-  difficulty: "Hard",
-  question: "A stable closed-loop system has very low phase margin. What behavior is it more likely to exhibit?",
-  choices: [
-    "A) Oscillatory response and poor robustness to additional phase lag",
-    "B) Guaranteed monotonic response",
-    "C) Complete immunity to model uncertainty",
-    "D) Zero steady-state error for every input"
-  ],
-  correct: "A",
-  explanation:
-    "Low phase margin generally corresponds to a more oscillatory response and less tolerance for unmodeled delays or phase lag."
-},
-
-// ==================== ADDITIONAL BEHAVIORAL QUESTIONS ====================
-
-{
-  topic: "Behavioral",
-  difficulty: "Easy",
-  question: "When answering a behavioral interview question, why is it useful to describe your specific contribution?",
-  choices: [
-    "A) It helps the interviewer understand what you personally did",
-    "B) It avoids discussing results",
-    "C) It makes teamwork irrelevant",
-    "D) It guarantees the interviewer agrees with every decision"
-  ],
-  correct: "A",
-  explanation:
-    "Interviewers need to distinguish your actions and reasoning from the work performed by the broader team."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Easy",
-  question: "If you do not know the answer to a technical interview question, what is generally a strong response?",
-  choices: [
-    "A) Invent an answer confidently",
-    "B) State what you know and reason through the problem transparently",
-    "C) Refuse to discuss the problem",
-    "D) Change the subject immediately"
-  ],
-  correct: "B",
-  explanation:
-    "Transparent reasoning lets the interviewer evaluate your problem-solving process even when you do not immediately know the final answer."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Easy",
-  question: "What should the Result portion of a STAR response ideally include?",
-  choices: [
-    "A) The outcome and, when possible, measurable impact",
-    "B) Only background information",
-    "C) A list of unrelated technical terms",
-    "D) Another person's responsibilities"
-  ],
-  correct: "A",
-  explanation:
-    "The Result closes the story by explaining what happened because of your actions and what impact was achieved."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Easy",
-  question: "When describing teamwork in an interview, what is most useful?",
-  choices: [
-    "A) Explain both collaboration and your individual contribution",
-    "B) Use only the word 'we' and never identify your role",
-    "C) Take credit for every team accomplishment",
-    "D) Avoid discussing communication"
-  ],
-  correct: "A",
-  explanation:
-    "A strong teamwork response demonstrates collaboration while making your own responsibilities and contributions clear."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "You discover that your analysis contains an error shortly before a design review. What is generally the best response?",
-  choices: [
-    "A) Hide the error and hope it is not noticed",
-    "B) Communicate the issue promptly, assess its impact, and correct it",
-    "C) Delete the analysis without explanation",
-    "D) Blame the software tool"
-  ],
-  correct: "B",
-  explanation:
-    "Engineering professionalism favors prompt disclosure, impact assessment, corrective action, and clear communication."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "A project requirement is ambiguous. What is generally the strongest first step?",
-  choices: [
-    "A) Quietly choose whichever interpretation is easiest",
-    "B) Clarify the requirement with the appropriate stakeholder and document assumptions",
-    "C) Ignore the requirement",
-    "D) Wait until final testing to discuss it"
-  ],
-  correct: "B",
-  explanation:
-    "Clarifying ambiguity early reduces rework and creates alignment about the intended requirement and any assumptions."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "How should you discuss a disagreement with a former teammate during an interview?",
-  choices: [
-    "A) Focus on the issue, communication, and resolution rather than attacking the person",
-    "B) Explain why the teammate was incompetent",
-    "C) Avoid describing your own actions",
-    "D) Exaggerate the conflict to make the story interesting"
-  ],
-  correct: "A",
-  explanation:
-    "Professional conflict stories emphasize how you handled the disagreement constructively and what the team learned or achieved."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "You have two high-priority engineering tasks due at the same time and cannot complete both to the required quality. What should you generally do?",
-  choices: [
-    "A) Say nothing and miss one deadline",
-    "B) Communicate the conflict early and align priorities with the relevant lead or stakeholder",
-    "C) Randomly choose one task",
-    "D) Lower the quality of both without telling anyone"
-  ],
-  correct: "B",
-  explanation:
-    "Early communication allows the team to make an informed priority, schedule, or resource decision before the conflict becomes a failure."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "What makes an answer to 'Why do you want this role?' stronger?",
-  choices: [
-    "A) Connecting your skills and interests to the actual work and organization",
-    "B) Giving the same generic answer to every company",
-    "C) Discussing salary only",
-    "D) Avoiding any mention of the role"
-  ],
-  correct: "A",
-  explanation:
-    "A specific connection between your experience, interests, and the role demonstrates preparation and genuine fit with the work."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "When explaining a complex engineering concept to a nontechnical stakeholder, what is generally most effective?",
-  choices: [
-    "A) Start with the decision-relevant idea and use accessible language",
-    "B) Use as much jargon as possible",
-    "C) Present equations without context",
-    "D) Assume the stakeholder has the same technical background"
-  ],
-  correct: "A",
-  explanation:
-    "Effective technical communication adapts detail and terminology to the audience while preserving the information needed for the decision."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "An interviewer asks about a project listed on your resume. What should you be prepared to explain?",
-  choices: [
-    "A) Your decisions, technical reasoning, tradeoffs, and results",
-    "B) Only the project's title",
-    "C) Only what your teammates did",
-    "D) Nothing beyond the bullet points"
-  ],
-  correct: "A",
-  explanation:
-    "Interviewers often probe resume projects to understand your depth of ownership, engineering reasoning, and ability to discuss tradeoffs."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Medium",
-  question: "What is a strong way to answer a question about receiving critical feedback?",
-  choices: [
-    "A) Describe how you evaluated the feedback and used it to improve",
-    "B) Say you have never received critical feedback",
-    "C) Explain why feedback is usually wrong",
-    "D) Blame the person who provided it"
-  ],
-  correct: "A",
-  explanation:
-    "A constructive response demonstrates self-awareness, coachability, and the ability to turn feedback into improved performance."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "A manager asks you to approve a design that you believe has an unresolved safety concern. What is generally the most appropriate response?",
-  choices: [
-    "A) Approve it because the manager is senior",
-    "B) Clearly document and communicate the technical concern and use the appropriate review or escalation process",
-    "C) Ignore the concern unless a failure occurs",
-    "D) Change the analysis to support approval"
-  ],
-  correct: "B",
-  explanation:
-    "Engineers should communicate credible safety concerns clearly and use established technical and organizational processes rather than suppressing them."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "Your preferred design performs best in one metric but is worse in cost, schedule, and manufacturability. What is the strongest engineering approach?",
-  choices: [
-    "A) Choose it because it is your design",
-    "B) Evaluate the alternatives against agreed requirements and weighted tradeoffs",
-    "C) Ignore nontechnical constraints",
-    "D) Select whichever concept was proposed first"
-  ],
-  correct: "B",
-  explanation:
-    "Engineering decisions often require balancing multiple requirements and constraints rather than optimizing a single performance metric."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "During testing, results disagree with your model even after you verify the test instrumentation. What is generally the best next step?",
-  choices: [
-    "A) Discard the test data because the model must be correct",
-    "B) Investigate model assumptions, boundary conditions, and unmodeled physics",
-    "C) Adjust the test data until it matches the prediction",
-    "D) Report only the model results"
-  ],
-  correct: "B",
-  explanation:
-    "A model is an approximation. A persistent discrepancy should trigger systematic investigation of assumptions, inputs, boundary conditions, and missing effects."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "A teammate proposes a technically plausible solution, but there is not enough data to know whether it meets a critical requirement. What is generally the strongest response?",
-  choices: [
-    "A) Accept it because it sounds reasonable",
-    "B) Identify the uncertainty and define analysis or testing needed to close it",
-    "C) Reject it without explanation",
-    "D) Remove the requirement"
-  ],
-  correct: "B",
-  explanation:
-    "Good engineering decisions distinguish assumptions from evidence and identify the work needed to reduce uncertainty around critical requirements."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "You are leading a project and realize the original schedule is no longer achievable. What should you generally do?",
-  choices: [
-    "A) Continue reporting the original date until it is missed",
-    "B) Reassess the remaining work, identify drivers, and communicate a realistic recovery plan early",
-    "C) Ask the team to hide incomplete work",
-    "D) Remove verification activities without review"
-  ],
-  correct: "B",
-  explanation:
-    "Effective project leadership surfaces schedule risk early, identifies root causes and options, and communicates a realistic plan rather than hiding the problem."
-},
-
-{
-  topic: "Behavioral",
-  difficulty: "Hard",
-  question: "In a technical interview, you realize halfway through your solution that an earlier assumption was wrong. What is generally the strongest response?",
-  choices: [
-    "A) Continue with the incorrect assumption",
-    "B) Acknowledge it, explain the consequence, and revise the solution",
-    "C) Pretend the interviewer made the assumption",
-    "D) Stop answering entirely"
-  ],
-  correct: "B",
-  explanation:
-    "Recognizing and correcting an incorrect assumption demonstrates technical judgment, transparency, and adaptability."
-}
-
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "At a given true airspeed and air density, what primarily happens to dynamic pressure if airspeed doubles?",
+    choices: [
+      "A) It doubles",
+      "B) It triples",
+      "C) It quadruples",
+      "D) It increases eightfold",
+    ],
+    correct: "C",
+    explanation: "Dynamic pressure is q=(1/2)rho V²; doubling V gives four times the dynamic pressure.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "Which parameter is typically measured in seconds when using the SI convention for specific impulse?",
+    choices: [
+      "A) Specific impulse based on propellant weight flow",
+      "B) Characteristic exhaust velocity",
+      "C) Combustion-chamber pressure rise",
+      "D) Thrust-to-weight ratio",
+    ],
+    correct: "A",
+    explanation: "Specific impulse is thrust divided by propellant weight flow rate and is conventionally expressed in seconds.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "For an ideal circular two-body orbit, the required orbital speed depends on radius r as which function?",
+    choices: [
+      "A) Proportional to r",
+      "B) Proportional to 1/r",
+      "C) Proportional to r²",
+      "D) Proportional to 1/sqrt(r)",
+    ],
+    correct: "D",
+    explanation: "Circular speed is sqrt(mu/r), so speed decreases with the square root of orbital radius.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "When a wing's angle of attack increases in attached subsonic flow below stall, which trend is generally expected?",
+    choices: [
+      "A) Lift coefficient decreases linearly",
+      "B) Lift coefficient generally increases",
+      "C) Drag coefficient becomes identically zero",
+      "D) Lift becomes independent of speed",
+    ],
+    correct: "B",
+    explanation: "Over the approximately linear lift-curve range, lift coefficient generally increases with angle of attack.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "Which flight-control surface primarily creates a rolling moment on a conventional airplane?",
+    choices: [
+      "A) Elevator",
+      "B) Rudder",
+      "C) Ailerons",
+      "D) Trim tab on the rudder",
+    ],
+    correct: "C",
+    explanation: "Differential aileron deflections change lift across the wings, producing roll control.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "What does Mach number compare?",
+    choices: [
+      "A) Flow speed to the local speed of sound",
+      "B) Flow speed to local orbital speed",
+      "C) Static pressure to dynamic pressure",
+      "D) Lift to drag",
+    ],
+    correct: "A",
+    explanation: "Mach number M is local speed divided by local sound speed.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "In a rocket operating in vacuum, what is the principal source of thrust?",
+    choices: [
+      "A) Ambient-air compression",
+      "B) Gravitational acceleration on the propellant",
+      "C) Aerodynamic lift on the nozzle",
+      "D) Momentum carried away by expelled propellant plus nozzle pressure force",
+    ],
+    correct: "D",
+    explanation: "Rocket thrust results from exhaust momentum flux and possible exhaust pressure imbalance, and does not require air.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "Which body-fixed axis is conventionally associated with yaw rotation?",
+    choices: [
+      "A) Longitudinal axis",
+      "B) Vertical axis",
+      "C) Lateral axis",
+      "D) Flight-path tangent",
+    ],
+    correct: "B",
+    explanation: "In standard aircraft body axes, yaw is rotation about the body z (vertical) axis.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Easy",
+    question: "For a Keplerian ellipse, which point is at the largest distance from the central attracting body?",
+    choices: [
+      "A) Periapsis",
+      "B) Ascending node",
+      "C) Apoapsis",
+      "D) Argument of periapsis",
+    ],
+    correct: "C",
+    explanation: "Apoapsis is the greatest radial distance on an elliptical orbit.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "What is the initial effect of a prograde tangential impulse at periapsis of a bound elliptical orbit?",
+    choices: [
+      "A) Its apoapsis altitude increases",
+      "B) Its periapsis altitude increases at the burn instant",
+      "C) Its inclination increases",
+      "D) Its semi-major axis decreases",
+    ],
+    correct: "A",
+    explanation: "A prograde impulse at periapsis raises energy, keeping that periapsis radius while increasing apoapsis.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "At fixed angle of attack and Mach number in an incompressible approximation, how does aerodynamic lift scale if airspeed increases by 20%?",
+    choices: [
+      "A) 1.20 times",
+      "B) 1.24 times",
+      "C) 1.40 times",
+      "D) 1.44 times",
+    ],
+    correct: "D",
+    explanation: "Lift scales with dynamic pressure, proportional to V²; 1.2²=1.44.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "An airplane has lift-to-drag ratio L/D=15 in steady, level flight. Approximately what fraction of its weight is drag?",
+    choices: [
+      "A) 1/30",
+      "B) 1/15",
+      "C) 1/10",
+      "D) 1/5",
+    ],
+    correct: "B",
+    explanation: "Because L=W and L/D=15, drag D=W/15.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "For a bound elliptical orbit around a point mass, where is the spacecraft's inertial speed greatest?",
+    choices: [
+      "A) At apoapsis",
+      "B) At the ascending node regardless of geometry",
+      "C) At periapsis",
+      "D) At the semiminor-axis crossing",
+    ],
+    correct: "C",
+    explanation: "Vis-viva and angular momentum conservation place maximum orbital speed at minimum orbital radius.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "Why does an ideal Hohmann transfer between coplanar circular orbits use two tangential impulses?",
+    choices: [
+      "A) The first enters the transfer ellipse and the second circularizes at the target orbit",
+      "B) Both impulses cancel orbital inclination",
+      "C) One changes orbital plane and one changes radius",
+      "D) The first circularizes at the target and the second enters the ellipse",
+    ],
+    correct: "A",
+    explanation: "A tangential departure enters the transfer ellipse, and a tangential arrival impulse matches the target circular speed.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "If rocket specific impulse increases at fixed initial-to-final mass ratio, what happens to ideal delta-v?",
+    choices: [
+      "A) It decreases",
+      "B) It remains constant",
+      "C) It depends only on burn duration",
+      "D) It increases",
+    ],
+    correct: "D",
+    explanation: "Tsiolkovsky's equation gives delta-v=g0 Isp ln(m0/mf), so higher Isp gives higher ideal delta-v.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "What does a negative static longitudinal stability derivative dCm/dalpha generally imply for a conventional airplane near trim?",
+    choices: [
+      "A) Increasing alpha generates an additional nose-up moment",
+      "B) Increasing alpha generates a restoring nose-down pitching moment",
+      "C) Pitching moment becomes independent of CG",
+      "D) Drag necessarily becomes negative",
+    ],
+    correct: "B",
+    explanation: "A negative dCm/dalpha means a small positive alpha disturbance causes a restoring negative pitching moment.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "For a subsonic ideal-gas flow through a converging nozzle, assuming isentropic conditions, what generally happens as area decreases?",
+    choices: [
+      "A) Speed decreases and static pressure increases",
+      "B) Both speed and static pressure increase",
+      "C) Speed increases and static pressure decreases",
+      "D) Both speed and static pressure decrease",
+    ],
+    correct: "C",
+    explanation: "Subsonic flow accelerates through a converging duct, with static pressure falling under isentropic conditions.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "In an ideal gas, what happens to the local speed of sound if absolute temperature quadruples at constant composition?",
+    choices: [
+      "A) It doubles",
+      "B) It quadruples",
+      "C) It halves",
+      "D) It stays unchanged",
+    ],
+    correct: "A",
+    explanation: "Speed of sound is a=sqrt(gamma R T); quadrupling T doubles a.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "Which orbital element is changed most directly by a purely out-of-plane impulsive maneuver at an orbital node?",
+    choices: [
+      "A) Semi-major axis exclusively",
+      "B) Eccentricity exclusively",
+      "C) True anomaly exclusively",
+      "D) Orbital-plane orientation (inclination and/or RAAN)",
+    ],
+    correct: "D",
+    explanation: "Normal velocity impulses tilt the orbital angular momentum vector, changing orbital-plane orientation; energy may also change for finite impulses.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "A spacecraft's semi-major axis doubles around the same planet. By which factor does its Keplerian orbital period change?",
+    choices: [
+      "A) 2",
+      "B) 2sqrt(2)",
+      "C) 4",
+      "D) sqrt(2)",
+    ],
+    correct: "B",
+    explanation: "Kepler's third law gives period proportional to a^(3/2), hence a factor of 2^(3/2)≈2.828.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "A wing stalls primarily because of which physical phenomenon?",
+    choices: [
+      "A) Air density becomes zero near the wing",
+      "B) Local flow must reach Mach 1",
+      "C) Large-scale boundary-layer separation reduces lift",
+      "D) The pitching moment becomes exactly zero",
+    ],
+    correct: "C",
+    explanation: "At sufficiently high angle of attack, extensive flow separation limits and then reduces lift.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "For a fixed wing area and speed, how does doubling air density change lift if lift coefficient is unchanged?",
+    choices: [
+      "A) Lift doubles",
+      "B) Lift quadruples",
+      "C) Lift halves",
+      "D) Lift remains constant",
+    ],
+    correct: "A",
+    explanation: "L=(1/2)rho V² S CL, so lift is proportional to density when other terms remain fixed.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "Which statement about aerodynamic center and center of pressure is generally correct for an airfoil in attached subsonic flow?",
+    choices: [
+      "A) Both must coincide for all angles of attack",
+      "B) The center of pressure is fixed at quarter chord for every airfoil",
+      "C) The aerodynamic center always lies at the leading edge",
+      "D) Pitching moment about the aerodynamic center varies relatively little with angle of attack",
+    ],
+    correct: "D",
+    explanation: "The aerodynamic center is defined near the point where pitching moment is nearly constant with angle of attack.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "What does a spacecraft attitude quaternion represent?",
+    choices: [
+      "A) Its position relative to the central body",
+      "B) Its three-dimensional orientation without Euler-angle singularities",
+      "C) Its angular acceleration in inertial coordinates",
+      "D) Its orbital eccentricity and inclination",
+    ],
+    correct: "B",
+    explanation: "A unit quaternion parameterizes orientation and avoids the gimbal-lock singularities of some Euler-angle sequences.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "For a body in a prograde circular orbit, which single impulsive maneuver initially lowers periapsis while leaving apoapsis near the burn point?",
+    choices: [
+      "A) A normal impulse at the node",
+      "B) A radial outward impulse",
+      "C) A retrograde tangential impulse",
+      "D) A prograde tangential impulse",
+    ],
+    correct: "C",
+    explanation: "A retrograde burn at the circular-orbit radius reduces energy, placing the burn point at the apoapsis of the new ellipse.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "A pitot-static system in incompressible flow measures stagnation pressure 12 kPa above static pressure. This difference is what quantity?",
+    choices: [
+      "A) Dynamic pressure",
+      "B) Hydrostatic pressure",
+      "C) Vapor pressure",
+      "D) Total-pressure loss",
+    ],
+    correct: "A",
+    explanation: "For incompressible inviscid flow, p0−p=(1/2)rho V², the dynamic pressure.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "For a spacecraft in a circular orbit, what is its specific mechanical orbital energy?",
+    choices: [
+      "A) +mu/(2r)",
+      "B) −mu/r",
+      "C) +mu/r",
+      "D) −mu/(2r)",
+    ],
+    correct: "D",
+    explanation: "Specific energy epsilon=v²/2−mu/r; using v²=mu/r yields epsilon=−mu/(2r).",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Medium",
+    question: "At a specified flight condition, what is the significance of maximum L/D for a jet airplane in steady glide with thrust zero?",
+    choices: [
+      "A) It yields minimum stall speed",
+      "B) It gives maximum glide distance per unit altitude in still air",
+      "C) It maximizes sink rate",
+      "D) It sets maximum structural load factor",
+    ],
+    correct: "B",
+    explanation: "For a given altitude loss in still air, the glide ratio is approximately L/D, so maximizing L/D maximizes range.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "At what eccentricity does a Keplerian two-body trajectory become parabolic?",
+    choices: [
+      "A) e=0",
+      "B) e=0.5",
+      "C) e=1",
+      "D) e>1",
+    ],
+    correct: "C",
+    explanation: "A parabolic trajectory is the boundary between bound elliptic (e<1) and hyperbolic (e>1) trajectories.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "A spacecraft uses a 180-degree ideal plane change at constant speed v. What is the required impulsive delta-v magnitude?",
+    choices: [
+      "A) 2v",
+      "B) v",
+      "C) sqrt(2)v",
+      "D) pi v",
+    ],
+    correct: "A",
+    explanation: "The magnitude of the vector velocity change is 2v sin(delta i/2); for 180 degrees, it is 2v.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "For an ideal normal shock in a calorically perfect gas, which condition is necessarily true?",
+    choices: [
+      "A) Static pressure falls across the shock",
+      "B) Stagnation temperature decreases across an adiabatic shock",
+      "C) Mach number increases across the shock",
+      "D) Stagnation pressure decreases across the shock",
+    ],
+    correct: "D",
+    explanation: "Normal shocks are irreversible: stagnation pressure drops, while adiabatic stagnation temperature is unchanged.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "Which conservation law is used to derive the vis-viva equation for two-body orbital motion?",
+    choices: [
+      "A) Conservation of linear momentum of the spacecraft alone",
+      "B) Conservation of specific mechanical energy",
+      "C) Conservation of spacecraft spin angular momentum",
+      "D) Conservation of atmospheric dynamic pressure",
+    ],
+    correct: "B",
+    explanation: "Vis-viva follows by equating specific orbital energy v²/2−mu/r to −mu/(2a).",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "A rocket's wet-to-dry mass ratio changes from 4 to 8 with unchanged Isp. By what factor does ideal delta-v increase?",
+    choices: [
+      "A) 2",
+      "B) 4",
+      "C) 1.5",
+      "D) 1.0",
+    ],
+    correct: "C",
+    explanation: "Delta-v is proportional to ln(m0/mf); ln8/ln4=3/2.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "At a fixed altitude and true airspeed in steady, level flight, increasing aircraft weight while holding wing area fixed requires what change in lift coefficient?",
+    choices: [
+      "A) Increase CL",
+      "B) Decrease CL",
+      "C) No change in CL",
+      "D) CL must become negative",
+    ],
+    correct: "A",
+    explanation: "Level-flight lift must equal greater weight; with q and S fixed, required CL rises.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "For a sun-synchronous near-circular Earth orbit, which perturbation is intentionally exploited to create the desired node precession?",
+    choices: [
+      "A) Atmospheric drag",
+      "B) Solar radiation pressure alone",
+      "C) Third-body lunar gravity alone",
+      "D) Earth's J2 oblateness",
+    ],
+    correct: "D",
+    explanation: "Earth's J2-driven secular RAAN precession can be tuned to track Earth's yearly motion around the Sun.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "For the same orbital radius, how does escape speed compare with circular-orbit speed in the two-body approximation?",
+    choices: [
+      "A) Escape speed is twice circular speed",
+      "B) Escape speed is sqrt(2) times circular speed",
+      "C) Escape speed is circular speed divided by sqrt(2)",
+      "D) They are equal",
+    ],
+    correct: "B",
+    explanation: "v_escape=sqrt(2mu/r), whereas v_circular=sqrt(mu/r), so their ratio is sqrt(2).",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "In ideal incompressible potential flow around a lifting airfoil, which parameter is directly linked to lift per unit span through the Kutta–Joukowski relation?",
+    choices: [
+      "A) Wing aspect ratio",
+      "B) Local dynamic viscosity",
+      "C) Circulation around the airfoil",
+      "D) Wing structural bending rigidity",
+    ],
+    correct: "C",
+    explanation: "Kutta–Joukowski gives lift per span L'=rho V Gamma, linking circulation to lift.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "For an unpowered ideal atmospheric entry into a still atmosphere, aerodynamic drag generally does what to the vehicle's specific mechanical energy?",
+    choices: [
+      "A) Reduces it by dissipating mechanical energy into heat",
+      "B) Increases it by converting heat to orbital energy",
+      "C) Keeps it fixed because drag is perpendicular to velocity",
+      "D) Changes only orbital inclination",
+    ],
+    correct: "A",
+    explanation: "Drag opposes motion and performs negative work, reducing mechanical energy as heat and flow energy increase.",
+  },
+  {
+    topic: "Aerospace",
+    difficulty: "Hard",
+    question: "In the circular restricted three-body problem, what does the Jacobi constant constrain?",
+    choices: [
+      "A) The spacecraft's accessible regions of motion in the rotating frame",
+      "B) The magnitude of the spacecraft's inertial velocity at all times",
+      "C) The mass ratio of the two primaries",
+      "D) The spacecraft's physical mass loss rate",
+    ],
+    correct: "A",
+    explanation: "The Jacobi constant combines rotating-frame kinetic terms and effective potential, defining zero-velocity surfaces and accessible regions.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "For two ideal resistors R and 2R connected in parallel, what is the equivalent resistance?",
+    choices: [
+      "A) 3R",
+      "B) 2R/3",
+      "C) 3R/2",
+      "D) R/3",
+    ],
+    correct: "B",
+    explanation: "Parallel resistors give 1/Req=1/R+1/(2R)=3/(2R), so Req=2R/3.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "What physical property does a capacitor primarily store energy in?",
+    choices: [
+      "A) Magnetic flux",
+      "B) Mechanical deformation",
+      "C) Electric field",
+      "D) Electron drift velocity",
+    ],
+    correct: "C",
+    explanation: "Capacitor energy U=(1/2)CV² is stored in its electric field.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "What is the voltage across a 5-ohm resistor carrying 2 A?",
+    choices: [
+      "A) 10 V",
+      "B) 2.5 V",
+      "C) 7 V",
+      "D) 20 V",
+    ],
+    correct: "A",
+    explanation: "Ohm's law gives V=IR=2×5=10 V.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "In an ideal series RLC circuit, what is the condition for resonance?",
+    choices: [
+      "A) Inductive reactance is zero",
+      "B) Capacitive reactance is zero",
+      "C) Resistance equals reactance",
+      "D) Inductive and capacitive reactances are equal in magnitude",
+    ],
+    correct: "D",
+    explanation: "At resonance, X_L=X_C, so the reactive contributions cancel.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "For a sinusoidal AC voltage with peak amplitude 10 V, what is its RMS magnitude?",
+    choices: [
+      "A) 10 V",
+      "B) 7.07 V",
+      "C) 14.14 V",
+      "D) 5.0 V",
+    ],
+    correct: "B",
+    explanation: "The RMS of a sinusoid equals peak value divided by sqrt(2), approximately 7.07 V.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "In a DC steady-state ideal circuit, how does an ideal inductor behave after all transients have decayed?",
+    choices: [
+      "A) As an open circuit",
+      "B) As a fixed-voltage source",
+      "C) As a short circuit",
+      "D) As a capacitor",
+    ],
+    correct: "C",
+    explanation: "An ideal inductor has v=L di/dt; for constant current, its steady-state voltage is zero.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "Two independent ideal voltage sources of 5 V and 3 V are placed in series aiding polarity. What is the net voltage?",
+    choices: [
+      "A) 8 V",
+      "B) 2 V",
+      "C) 15 V",
+      "D) 1.67 V",
+    ],
+    correct: "A",
+    explanation: "Series-aiding ideal source voltages add algebraically: 5+3=8 V.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "Which circuit law states that the algebraic sum of currents at a node is zero?",
+    choices: [
+      "A) Kirchhoff's voltage law",
+      "B) Ohm's law",
+      "C) Faraday's law",
+      "D) Kirchhoff's current law",
+    ],
+    correct: "D",
+    explanation: "Kirchhoff's current law expresses conservation of charge at a node.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "A resistor dissipates 12 W with 2 A through it. What is its resistance?",
+    choices: [
+      "A) 3 ohms",
+      "B) 6 ohms",
+      "C) 12 ohms",
+      "D) 24 ohms",
+    ],
+    correct: "A",
+    explanation: "P=I²R, so R=P/I²=12/4=3 ohms.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Easy",
+    question: "For an ideal capacitor at steady DC voltage, what is the current through it?",
+    choices: [
+      "A) Equal to C/V",
+      "B) Equal to V/C",
+      "C) Zero",
+      "D) Infinite",
+    ],
+    correct: "C",
+    explanation: "Capacitor current is i=C dV/dt; a constant DC voltage gives zero current.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "A first-order RC low-pass filter has R=1 kΩ and C=1 µF. Approximately what is its cutoff frequency?",
+    choices: [
+      "A) 15.9 Hz",
+      "B) 159 Hz",
+      "C) 1.59 kHz",
+      "D) 10 kHz",
+    ],
+    correct: "B",
+    explanation: "f_c=1/(2pi RC)=1/(2pi×0.001)≈159 Hz.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "An ideal operational amplifier with negative feedback has its noninverting input grounded. In normal linear operation, what is the approximate inverting-input voltage?",
+    choices: [
+      "A) Equal to the output voltage",
+      "B) At the positive supply rail",
+      "C) Equal to the input source voltage",
+      "D) Approximately 0 V (virtual ground)",
+    ],
+    correct: "D",
+    explanation: "High open-loop gain and negative feedback drive the input difference near zero, establishing virtual ground.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "A 12 V source supplies two series resistors, 2 kΩ and 4 kΩ. What is the voltage across the 4 kΩ resistor?",
+    choices: [
+      "A) 8 V",
+      "B) 4 V",
+      "C) 6 V",
+      "D) 12 V",
+    ],
+    correct: "A",
+    explanation: "Voltage division gives V_4k=12×4/(2+4)=8 V.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "In a transformer with ideal turns ratio Np:Ns=4:1, what is the secondary voltage if primary voltage is 120 V RMS?",
+    choices: [
+      "A) 480 V RMS",
+      "B) 60 V RMS",
+      "C) 30 V RMS",
+      "D) 15 V RMS",
+    ],
+    correct: "C",
+    explanation: "An ideal transformer gives Vs/Vp=Ns/Np=1/4, so Vs=30 V RMS.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "Which impedance describes an ideal 10 mH inductor at angular frequency 1000 rad/s?",
+    choices: [
+      "A) 10 ohms",
+      "B) j10 ohms",
+      "C) −j10 ohms",
+      "D) j0.01 ohms",
+    ],
+    correct: "B",
+    explanation: "Inductor impedance Z_L=j omega L=j(1000)(0.01)=j10 ohms.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "For a linear circuit driven by a single sinusoidal frequency, what does a Bode magnitude of −20 dB mean for voltage gain magnitude?",
+    choices: [
+      "A) Voltage amplitude gain is 0.01",
+      "B) Voltage amplitude gain is 0.2",
+      "C) Voltage amplitude gain is 2",
+      "D) Voltage amplitude gain is 0.1",
+    ],
+    correct: "D",
+    explanation: "20log10(magnitude of Vout/Vin)=−20 implies amplitude ratio 10^(−1)=0.1.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "For a pure resistor driven by sinusoidal voltage, how are current and voltage phased?",
+    choices: [
+      "A) In phase",
+      "B) Current leads by 90 degrees",
+      "C) Current lags by 90 degrees",
+      "D) Current is 180 degrees out of phase",
+    ],
+    correct: "A",
+    explanation: "An ideal resistor has v(t)=Ri(t), so their sinusoidal phases match.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "In a balanced three-phase wye system, how is line-to-line voltage magnitude related to phase-to-neutral voltage magnitude?",
+    choices: [
+      "A) Equal",
+      "B) Three times",
+      "C) sqrt(3) times",
+      "D) One-third",
+    ],
+    correct: "C",
+    explanation: "A balanced wye supply has V_line=sqrt(3)V_phase in magnitude.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "What is the sampling-rate requirement to avoid aliasing for a strictly bandlimited signal with maximum frequency 3 kHz, assuming ideal sampling and reconstruction?",
+    choices: [
+      "A) At least 3 kHz",
+      "B) Greater than 6 kHz",
+      "C) Exactly 4.5 kHz",
+      "D) Less than 6 kHz",
+    ],
+    correct: "B",
+    explanation: "Nyquist-Shannon sampling requires a rate greater than twice the highest occupied frequency for the stated bandlimit.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "For a first-order RL circuit, what is the time constant?",
+    choices: [
+      "A) RL",
+      "B) 1/(RL)",
+      "C) L/R²",
+      "D) L/R",
+    ],
+    correct: "D",
+    explanation: "For an RL circuit, the current transient decays with time constant tau=L/R.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "A 1 µF capacitor is charged to 10 V. How much energy does it store?",
+    choices: [
+      "A) 50 µJ",
+      "B) 100 µJ",
+      "C) 10 µJ",
+      "D) 5 µJ",
+    ],
+    correct: "A",
+    explanation: "U=(1/2)CV²=(1/2)(1e−6)(10²)=50e−6 J.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "An ideal op-amp noninverting amplifier has Rf=9 kΩ and Rg=1 kΩ. What is its closed-loop voltage gain?",
+    choices: [
+      "A) 9",
+      "B) −9",
+      "C) 10",
+      "D) −10",
+    ],
+    correct: "C",
+    explanation: "Noninverting gain is 1+Rf/Rg=1+9=10.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "For a forward-biased silicon diode at ordinary currents, which voltage drop is a common approximate first-order model?",
+    choices: [
+      "A) 0.2 V",
+      "B) 0.7 V",
+      "C) 1.5 V",
+      "D) 5 V",
+    ],
+    correct: "B",
+    explanation: "The constant-voltage-drop approximation for an ordinary silicon diode is roughly 0.7 V, although actual forward voltage varies.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "A digital ADC uses 10 bits over a unipolar 0–5 V range. Approximately what is one ideal quantization step?",
+    choices: [
+      "A) 0.49 V",
+      "B) 0.05 V",
+      "C) 0.50 mV",
+      "D) 4.88 mV",
+    ],
+    correct: "D",
+    explanation: "The ideal step is 5/2^10≈0.004883 V=4.88 mV.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "For an ideal low-pass RC circuit, what is the high-frequency magnitude asymptote of its Bode plot?",
+    choices: [
+      "A) −20 dB per decade",
+      "B) +20 dB per decade",
+      "C) −40 dB per decade",
+      "D) 0 dB per decade",
+    ],
+    correct: "A",
+    explanation: "A single-pole low-pass magnitude falls as 1/omega at high frequency, corresponding to −20 dB/decade.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "In a lossless transmission line with characteristic impedance Z0, what load impedance eliminates reflected voltage waves?",
+    choices: [
+      "A) Zero impedance",
+      "B) Infinite impedance",
+      "C) Z0",
+      "D) −Z0",
+    ],
+    correct: "C",
+    explanation: "Reflection coefficient Gamma=(ZL−Z0)/(ZL+Z0) equals zero when ZL=Z0.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "For a passive, ideal series circuit containing R and L driven by DC voltage, what initially limits the rate of current change?",
+    choices: [
+      "A) Resistor inductance only",
+      "B) Inductance through v_L=L di/dt",
+      "C) Capacitor leakage",
+      "D) The AC source frequency",
+    ],
+    correct: "B",
+    explanation: "Inductor voltage governs current slew; current cannot jump instantaneously in an ideal finite-voltage inductor.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "What does a negative real power measured at a port generally mean under the passive sign convention?",
+    choices: [
+      "A) The port absorbs reactive power only",
+      "B) The port has zero terminal voltage",
+      "C) The impedance is purely capacitive",
+      "D) The element delivers net real power to its surroundings",
+    ],
+    correct: "D",
+    explanation: "With passive sign convention, negative real power indicates energy delivery rather than absorption.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "A complex impedance is 3+j4 ohms. What is its magnitude?",
+    choices: [
+      "A) 5 ohms",
+      "B) 7 ohms",
+      "C) 1 ohm",
+      "D) 12 ohms",
+    ],
+    correct: "A",
+    explanation: "Magnitude is sqrt(3²+4²)=5 ohms.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Medium",
+    question: "A Butterworth low-pass filter is designed primarily for which passband characteristic?",
+    choices: [
+      "A) Maximum ripple for fastest roll-off",
+      "B) Linear phase at all frequencies",
+      "C) Maximally flat magnitude near zero frequency",
+      "D) Constant group delay by construction",
+    ],
+    correct: "C",
+    explanation: "Butterworth magnitude response is maximally flat in the passband, unlike ripple-based Chebyshev designs.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "A series RLC has R=10 ohms, L=0.1 H, C=100 µF. Approximately what is its undamped natural angular frequency?",
+    choices: [
+      "A) 100 rad/s",
+      "B) 316 rad/s",
+      "C) 1000 rad/s",
+      "D) 31.6 rad/s",
+    ],
+    correct: "B",
+    explanation: "omega_0=1/sqrt(LC)=1/sqrt(0.1×100e−6)≈316.2 rad/s.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "An op-amp configured as an ideal inverting amplifier has Rin=2 kΩ and Rf=10 kΩ. For +0.4 V input, what is output voltage?",
+    choices: [
+      "A) +2.0 V",
+      "B) −0.8 V",
+      "C) +0.08 V",
+      "D) −2.0 V",
+    ],
+    correct: "D",
+    explanation: "Inverting gain is −Rf/Rin=−5, giving output −2.0 V, assuming output stays within supply rails.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "For an ideal capacitor with capacitance C, what is its impedance in the sinusoidal steady-state phasor domain?",
+    choices: [
+      "A) 1/(j omega C)",
+      "B) j omega C",
+      "C) jC/omega",
+      "D) omega/C",
+    ],
+    correct: "A",
+    explanation: "Capacitor impedance is Z_C=1/(j omega C), with negative 90-degree phase.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "A 4-ohm resistor and ideal 8-ohm inductive reactance form a series load. What is the approximate power factor magnitude?",
+    choices: [
+      "A) 0.894",
+      "B) 0.500",
+      "C) 0.447",
+      "D) 0.707",
+    ],
+    correct: "C",
+    explanation: "Power factor is R/magnitude(Z)=4/sqrt(4²+8²)=4/sqrt(80)≈0.447, lagging.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "For a lossless transmission line with Z0=50 ohms terminated in 100 ohms, what is the voltage reflection coefficient?",
+    choices: [
+      "A) −1/3",
+      "B) +1/3",
+      "C) +1/2",
+      "D) −1/2",
+    ],
+    correct: "B",
+    explanation: "Gamma=(ZL−Z0)/(ZL+Z0)=(100−50)/(100+50)=1/3.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "A continuous-time system receives an input sampled at 8 kHz. A 6 kHz sinusoid will alias to which frequency in the baseband 0–4 kHz?",
+    choices: [
+      "A) 6 kHz",
+      "B) 4 kHz",
+      "C) 3 kHz",
+      "D) 2 kHz",
+    ],
+    correct: "D",
+    explanation: "The sampled sinusoid at 6 kHz is indistinguishable from one at absolute(8−6)=2 kHz.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "An ideal transformer steps voltage up by a factor of 5. For fixed output power and negligible losses, what happens to secondary current relative to primary current?",
+    choices: [
+      "A) It is one-fifth the primary current",
+      "B) It is five times the primary current",
+      "C) It is unchanged",
+      "D) It is twenty-five times smaller",
+    ],
+    correct: "A",
+    explanation: "Conservation of ideal transformer power gives Vs Is=Vp Ip; increasing voltage fivefold reduces current fivefold.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "For a series RLC with R fixed, what generally happens to the quality factor Q if inductance increases and capacitance is held fixed?",
+    choices: [
+      "A) Q decreases as 1/sqrt(L)",
+      "B) Q remains fixed",
+      "C) Q increases as sqrt(L)",
+      "D) Q increases linearly with L²",
+    ],
+    correct: "C",
+    explanation: "Series RLC quality factor Q=(1/R)sqrt(L/C), so Q rises as the square root of inductance.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "Two identical 1 µF capacitors are connected in series and charged from an ideal 10 V DC supply. What is the magnitude of voltage across each?",
+    choices: [
+      "A) 10 V",
+      "B) 5 V",
+      "C) 2.5 V",
+      "D) 20 V",
+    ],
+    correct: "B",
+    explanation: "Identical series capacitors share equal charge and divide applied voltage equally, 5 V each.",
+  },
+  {
+    topic: "Electrical",
+    difficulty: "Hard",
+    question: "For an ideal comparator with no hysteresis, what issue can occur when a noisy input sits close to the switching threshold?",
+    choices: [
+      "A) A decrease in ADC resolution",
+      "B) Complete suppression of high-frequency noise",
+      "C) A fixed 90-degree phase shift",
+      "D) Rapid unintended switching between output states",
+    ],
+    correct: "D",
+    explanation: "Noise around a single threshold can cause output chatter; hysteresis establishes separate switching thresholds.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "In a negative-feedback system, what quantity is normally input to a controller?",
+    choices: [
+      "A) Measured output alone",
+      "B) Reference minus measured output",
+      "C) Reference plus measured output",
+      "D) Plant output derivative alone",
+    ],
+    correct: "B",
+    explanation: "The error signal is usually e=r−y, the difference between desired and measured output.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "For a first-order stable linear system, what fraction of a step response's total change has occurred after one time constant?",
+    choices: [
+      "A) About 37%",
+      "B) About 50%",
+      "C) About 63%",
+      "D) About 95%",
+    ],
+    correct: "C",
+    explanation: "The normalized step response is 1−exp(−t/tau); at t=tau it reaches approximately 63.2%.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "Which term in a PID controller responds to the accumulated history of error?",
+    choices: [
+      "A) Integral term",
+      "B) Proportional term",
+      "C) Derivative term",
+      "D) Feedforward term",
+    ],
+    correct: "A",
+    explanation: "The integral term depends on the time integral of tracking error.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "What makes an open-loop controller different from a closed-loop controller?",
+    choices: [
+      "A) It must be unstable",
+      "B) It cannot use actuators",
+      "C) It has no reference command",
+      "D) It does not adjust control action using measured output feedback",
+    ],
+    correct: "D",
+    explanation: "Open-loop control does not directly correct actions based on measured tracking error.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "For a continuous-time LTI system, which pole location is required for asymptotic stability?",
+    choices: [
+      "A) Any real positive pole",
+      "B) All poles strictly in the left half-plane",
+      "C) At least one pole on the imaginary axis",
+      "D) At least one pole in the right half-plane",
+    ],
+    correct: "B",
+    explanation: "A finite-dimensional continuous-time LTI system is asymptotically stable when all eigenvalues have negative real parts.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "What is the principal effect of derivative action in a PID controller near a changing error?",
+    choices: [
+      "A) Eliminate all sensor noise",
+      "B) Accumulate constant errors",
+      "C) React to how rapidly the error changes",
+      "D) Set the reference signal",
+    ],
+    correct: "C",
+    explanation: "Derivative action is proportional to error rate and can increase damping, but is sensitive to noise.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "In state-space notation x_dot=Ax+Bu, what does matrix A describe?",
+    choices: [
+      "A) Unforced state dynamics",
+      "B) Input coupling",
+      "C) Measurement mapping",
+      "D) Reference tracking weights",
+    ],
+    correct: "A",
+    explanation: "The A matrix governs the system's internal state evolution without inputs.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "A unity-feedback loop has forward transfer G(s). What is its closed-loop transfer function from reference to output?",
+    choices: [
+      "A) 1/[1+G(s)]",
+      "B) G(s)/[1−G(s)]",
+      "C) 1/G(s)",
+      "D) G(s)/[1+G(s)]",
+    ],
+    correct: "D",
+    explanation: "For negative unity feedback, T(s)=G(s)/(1+G(s)).",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "A plant step response oscillates with decreasing amplitude before settling. Which qualitative condition is most consistent?",
+    choices: [
+      "A) Overdamped response",
+      "B) Underdamped stable response",
+      "C) Undamped marginally stable response",
+      "D) Unstable response",
+    ],
+    correct: "B",
+    explanation: "Decaying oscillations indicate underdamped poles with negative real parts.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Easy",
+    question: "What is actuator saturation?",
+    choices: [
+      "A) Unmodeled sensor delay",
+      "B) Measurement bias",
+      "C) A physical limit on achievable control input",
+      "D) Elimination of plant disturbances",
+    ],
+    correct: "C",
+    explanation: "Saturation caps actuator magnitude, so a requested command may not be physically achievable.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "For a unity-feedback system with open-loop DC gain K=9 and proportional control, what is its steady-state error to a unit step if type 0 and stable?",
+    choices: [
+      "A) 0.1",
+      "B) 0.9",
+      "C) 0",
+      "D) 1.0",
+    ],
+    correct: "A",
+    explanation: "For a type-0 unity-feedback loop, unit-step steady-state error is 1/(1+Kp)=1/10.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "A standard underdamped second-order system has damping ratio zeta=0.5. Approximately what percentage overshoot occurs for a unit step?",
+    choices: [
+      "A) 5%",
+      "B) 10%",
+      "C) 25%",
+      "D) 16%",
+    ],
+    correct: "D",
+    explanation: "Percent overshoot is 100 exp[−pi zeta/sqrt(1−zeta²)]≈16.3%.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "For a continuous-time second-order system, keeping natural frequency fixed and increasing damping ratio from 0.2 to 0.6 generally does what to percentage overshoot?",
+    choices: [
+      "A) Increases it",
+      "B) Decreases it",
+      "C) Leaves it unchanged",
+      "D) Makes it undefined",
+    ],
+    correct: "B",
+    explanation: "The standard second-order overshoot decreases as damping ratio increases within 0<zeta<1.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "What is a defining property of a controllable linear state-space system?",
+    choices: [
+      "A) Every state is directly measurable",
+      "B) Its transfer function must have no zeros",
+      "C) Any initial state can be driven to any final state in finite time using an appropriate input",
+      "D) Its input matrix B must be square",
+    ],
+    correct: "C",
+    explanation: "Controllability means appropriate inputs can transfer the state between arbitrary states in finite time.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "Why is integral windup a concern when an actuator saturates?",
+    choices: [
+      "A) Accumulated error can cause large overshoot and slow recovery when saturation ends",
+      "B) Derivative gain necessarily becomes zero",
+      "C) The reference signal becomes sinusoidal",
+      "D) The state estimator loses observability",
+    ],
+    correct: "A",
+    explanation: "During saturation the integrator can continue accumulating error, delaying recovery and causing overshoot.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "The transfer function is G(s)=5/(s+5). What is its time constant?",
+    choices: [
+      "A) 5 s",
+      "B) 1 s",
+      "C) 0.5 s",
+      "D) 0.2 s",
+    ],
+    correct: "D",
+    explanation: "For G(s)=a/(s+a), tau=1/a=0.2 s.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "A stable continuous-time system has poles at −2 and −10. Which pole primarily determines its slowest exponential decay?",
+    choices: [
+      "A) −10",
+      "B) −2",
+      "C) Their arithmetic mean",
+      "D) Neither pole influences transients",
+    ],
+    correct: "B",
+    explanation: "The pole closest to the imaginary axis decays slowest, here exp(−2t).",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "For an LTI state-space pair (A,C), what does observability mean?",
+    choices: [
+      "A) All eigenvalues are stable",
+      "B) Every state is directly measured",
+      "C) Initial state can be inferred from output history with known input",
+      "D) Every input is uniquely determined by output",
+    ],
+    correct: "C",
+    explanation: "Observability enables reconstruction of the internal initial state from outputs over an interval and known inputs.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "What is the primary purpose of a low-pass filter on the derivative term of a practical PID controller?",
+    choices: [
+      "A) Limit amplification of high-frequency measurement noise",
+      "B) Make derivative action identical to integral action",
+      "C) Ensure zero error for all references",
+      "D) Remove the need for feedback sensors",
+    ],
+    correct: "A",
+    explanation: "Ideal differentiation amplifies noise at high frequency; filtering makes derivative control implementable.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "For a negative unity-feedback loop with G(s)=K/(s+2), what is the characteristic equation?",
+    choices: [
+      "A) s−2+K=0",
+      "B) s+2−K=0",
+      "C) Ks+2=0",
+      "D) s+2+K=0",
+    ],
+    correct: "D",
+    explanation: "Closed-loop poles solve 1+G(s)=0, giving s+2+K=0.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "In discrete-time LTI control, what location of all closed-loop poles ensures asymptotic stability?",
+    choices: [
+      "A) Strictly outside the unit circle",
+      "B) Strictly inside the unit circle",
+      "C) Anywhere in the left half of the z-plane",
+      "D) Exactly on the unit circle",
+    ],
+    correct: "B",
+    explanation: "Discrete-time modes decay only when each pole has magnitude less than one.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "In a standard Kalman filter, the covariance prediction generally increases when process-noise covariance Q increases. Why?",
+    choices: [
+      "A) Measurement sensitivity increases",
+      "B) The state transition matrix is removed",
+      "C) Greater model uncertainty is being propagated",
+      "D) The measurement noise is assumed zero",
+    ],
+    correct: "C",
+    explanation: "Prediction covariance is P_minus=F P F^T+Q, so larger Q represents additional uncertainty between measurements.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "What does the Kalman gain primarily determine during a measurement update?",
+    choices: [
+      "A) How strongly the estimate responds to the innovation",
+      "B) How fast the plant's actuator responds",
+      "C) How much feedforward reference is used",
+      "D) How rapidly the physical sensor samples",
+    ],
+    correct: "A",
+    explanation: "Kalman gain weights the residual between measured and predicted outputs when correcting the state estimate.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "A system's frequency response has magnitude 1 at its gain crossover frequency. In decibels this is what magnitude?",
+    choices: [
+      "A) −3 dB",
+      "B) +3 dB",
+      "C) +20 dB",
+      "D) 0 dB",
+    ],
+    correct: "D",
+    explanation: "20log10(1)=0 dB by definition.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "What is the physical interpretation of the phase margin for an open-loop transfer function with standard negative feedback?",
+    choices: [
+      "A) The gain required to double bandwidth",
+      "B) The additional phase lag at gain crossover that brings the loop to −180 degrees",
+      "C) The phase at DC minus 90 degrees",
+      "D) The maximum steady-state tracking error",
+    ],
+    correct: "B",
+    explanation: "Phase margin measures the extra lag needed to reach the critical −180 degree phase at unit loop gain.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "For a controllable pair (A,B), which design technique can assign desired closed-loop eigenvalues using full-state feedback?",
+    choices: [
+      "A) Output clipping",
+      "B) Moving-average filtering",
+      "C) Pole placement",
+      "D) Static feedforward only",
+    ],
+    correct: "C",
+    explanation: "For a controllable LTI system, suitable K in u=−Kx can place eigenvalues of A−BK.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "What does a feedforward controller require that pure feedback does not?",
+    choices: [
+      "A) A model or estimate of the reference-to-required-input relationship",
+      "B) A stable pole at the origin",
+      "C) A sensor measuring error derivative",
+      "D) Zero disturbance uncertainty",
+    ],
+    correct: "A",
+    explanation: "Feedforward anticipates the control needed from the command or measured disturbance using a plant model.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "For G(s)=1/[s(s+2)] in unity feedback, what is its system type?",
+    choices: [
+      "A) Type 0",
+      "B) Type 2",
+      "C) Type 3",
+      "D) Type 1",
+    ],
+    correct: "D",
+    explanation: "System type equals the number of pure integrators (open-loop poles at s=0); this plant has one.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "When a high-gain controller makes a loop responsive but oscillatory, which tradeoff is most likely being encountered?",
+    choices: [
+      "A) Lower reference tracking automatically implies lower gain",
+      "B) Speed increases while stability margins may decrease",
+      "C) Steady-state gain is always eliminated",
+      "D) Actuator authority becomes unlimited",
+    ],
+    correct: "B",
+    explanation: "Higher loop gain can improve response speed and low-frequency tracking but reduce phase margin and robustness.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Medium",
+    question: "A state observer uses a correction proportional to y−Cx_hat. What is this quantity called?",
+    choices: [
+      "A) Control effort",
+      "B) Process noise",
+      "C) Measurement innovation or residual",
+      "D) Feedforward command",
+    ],
+    correct: "C",
+    explanation: "The innovation is the difference between actual measurement and predicted measurement.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "For a unity-feedback plant G(s)=K/[s(s+4)], what closed-loop characteristic polynomial results?",
+    choices: [
+      "A) s²+4s+K",
+      "B) s²+Ks+4",
+      "C) Ks²+4s+1",
+      "D) s²+4s−K",
+    ],
+    correct: "A",
+    explanation: "1+G(s)=0 gives s(s+4)+K=s²+4s+K=0.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "The continuous-time characteristic polynomial s²+2s+5 corresponds to what damping ratio?",
+    choices: [
+      "A) 0.20",
+      "B) 0.89",
+      "C) 0.50",
+      "D) 1/sqrt(5)",
+    ],
+    correct: "D",
+    explanation: "Compare with s²+2zeta omega_n s+omega_n²: omega_n=sqrt(5), zeta=1/sqrt(5)≈0.447.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "A scalar Kalman filter has prior variance P=4 and measurement variance R=1, with measurement matrix H=1. What is the gain K?",
+    choices: [
+      "A) 0.2",
+      "B) 0.8",
+      "C) 1.0",
+      "D) 4.0",
+    ],
+    correct: "B",
+    explanation: "K=P/(P+R)=4/(4+1)=0.8.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "For a time-invariant linear system with state dimension 3, what is the maximum possible rank of its controllability matrix?",
+    choices: [
+      "A) 1",
+      "B) 2",
+      "C) 3",
+      "D) 6",
+    ],
+    correct: "C",
+    explanation: "The controllability matrix has three rows, so its rank cannot exceed the state dimension n=3.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "A transfer function has a pole at s=+1. For a minimal realization, what can be concluded about its internal dynamics?",
+    choices: [
+      "A) It has an unstable exponentially growing mode",
+      "B) It is stable if input is constant",
+      "C) It is marginally stable",
+      "D) Its DC gain must be zero",
+    ],
+    correct: "A",
+    explanation: "A right-half-plane pole gives exponential growth for some initial conditions in a minimal realization.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "For a causal discrete-time system, a pole at z=−0.5 corresponds to which natural-response behavior?",
+    choices: [
+      "A) Growing nonalternating samples",
+      "B) Constant-amplitude alternating samples",
+      "C) Decaying nonalternating samples",
+      "D) Decaying samples that alternate sign",
+    ],
+    correct: "D",
+    explanation: "The mode (−0.5)^k alternates sign with magnitude shrinking geometrically.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "For a scalar stable first-order plant with time constant 2 s, approximately what time elapses before a step response reaches 95% of its total change?",
+    choices: [
+      "A) 2 s",
+      "B) 6 s",
+      "C) 10 s",
+      "D) 12 s",
+    ],
+    correct: "B",
+    explanation: "For y=1−exp(−t/tau), reaching 95% takes −tau ln(0.05)≈3tau=6 s.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "For a unity negative-feedback system with loop transfer L(jomega_gc) having phase −150 degrees at gain crossover, what is the phase margin?",
+    choices: [
+      "A) 150 degrees",
+      "B) −30 degrees",
+      "C) 30 degrees",
+      "D) 60 degrees",
+    ],
+    correct: "C",
+    explanation: "Phase margin is 180 degrees plus loop phase at unity-gain crossover: 180−150=30 degrees.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "What does the separation principle state for an LTI plant with stabilizable/detectable dynamics and standard observer-based state feedback?",
+    choices: [
+      "A) Controller gain and observer gain can be designed independently while closed-loop eigenvalues combine their two eigenvalue sets",
+      "B) Estimated states must equal measured outputs",
+      "C) Only the observer governs closed-loop stability",
+      "D) The observer poles must coincide with controller poles",
+    ],
+    correct: "A",
+    explanation: "Under the standard assumptions, eigenvalues of the composite system are the union of controller and observer-error eigenvalues.",
+  },
+  {
+    topic: "Controls",
+    difficulty: "Hard",
+    question: "In continuous-time LQR, increasing the positive-definite input penalty R relative to state penalty Q generally favors what?",
+    choices: [
+      "A) Larger control effort for the same state error",
+      "B) Higher bandwidth without extra effort",
+      "C) Eliminating plant model error",
+      "D) Less aggressive control action",
+    ],
+    correct: "D",
+    explanation: "Penalizing u^T R u more heavily shifts the optimal controller toward smaller actuation, trading off state regulation.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "An interviewer asks you to explain a technical project in two minutes. Which opening is most effective?",
+    choices: [
+      "A) Lead with the final result and a detailed list of tools, leaving your role for follow-up",
+      "B) State the problem, your role, and the most important outcome",
+      "C) Explain the full design workflow in chronological order and end with the outcome",
+      "D) Start with the main technical trade and focus on methodology before stating the project objective",
+    ],
+    correct: "B",
+    explanation: "A concise problem-role-result framing gives the interviewer context and leaves time for technical follow-up.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "You cannot immediately answer a technical interview question. Which response best demonstrates your reasoning ability?",
+    choices: [
+      "A) Request a clarifying hint immediately, then apply the suggested method without showing your own reasoning",
+      "B) Choose the most familiar formula and work toward an answer without checking its assumptions",
+      "C) State assumptions, outline an approach, and reason through it aloud",
+      "D) Work independently in silence and present only the final calculation once complete",
+    ],
+    correct: "C",
+    explanation: "Transparent reasoning and appropriate assumptions demonstrate engineering thinking even when the final answer is uncertain.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "A design review reveals a requirement you overlooked. What is the strongest first response?",
+    choices: [
+      "A) Acknowledge the gap and assess its impact on the design",
+      "B) Document the missed requirement in the meeting notes and wait until the next planned design update",
+      "C) Propose a design modification at the review before determining how extensive the impact is",
+      "D) Request that the requirement be deferred so current verification can proceed as planned",
+    ],
+    correct: "A",
+    explanation: "Recognizing the gap and assessing consequences allows a controlled, evidence-based design correction.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "You are assigned a task with an unclear acceptance criterion. What is the best initial step?",
+    choices: [
+      "A) Use a conservative criterion based on earlier projects and seek confirmation at the next review",
+      "B) Build an initial prototype and let its performance establish the acceptance threshold",
+      "C) Adopt the closest archived requirement as a temporary baseline without formal clarification",
+      "D) Clarify the measurable success criterion with the owner before proceeding",
+    ],
+    correct: "D",
+    explanation: "Explicit acceptance criteria reduce rework and make completion verifiable.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "During a technical presentation, an audience member challenges your assumption. Which response is strongest?",
+    choices: [
+      "A) Restate the original modeling choice and move on unless another reviewer raises the concern",
+      "B) Explain its basis, limitations, and how results depend on it",
+      "C) Offer to substitute the reviewer’s assumption before checking its consequences for the result",
+      "D) Park the question until the end and continue presenting without acknowledging its limitations",
+    ],
+    correct: "B",
+    explanation: "Good engineering communication distinguishes assumptions from verified facts and discusses their influence on conclusions.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "A teammate reports an unexpected test result. What should you do first?",
+    choices: [
+      "A) Repeat the test immediately with wider acceptance bands to see whether the failure persists",
+      "B) Modify the most likely suspect design parameter and run a confirmatory test",
+      "C) Verify data quality and investigate possible causes",
+      "D) Wait for several additional failures before collecting detailed test conditions and logs",
+    ],
+    correct: "C",
+    explanation: "Checking instrumentation, procedure, repeatability, and possible mechanisms is a disciplined first response to anomalies.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "An interviewer asks what you contributed to a team project. Which response is clearest?",
+    choices: [
+      "A) Identify your decisions and deliverables while crediting collaborators",
+      "B) Describe the team’s combined responsibilities without identifying specific personal decisions",
+      "C) Summarize the outcome and project impact, leaving individual technical contributions unstated",
+      "D) Explain the project leader’s plan and describe your own role only if specifically asked",
+    ],
+    correct: "A",
+    explanation: "Clear ownership and appropriate credit show both technical contribution and teamwork.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "Two team members interpret a requirement differently. What is the best immediate action?",
+    choices: [
+      "A) Apply the stricter interpretation now and request formal clarification after implementation",
+      "B) Apply the interpretation that preserves the current schedule and document the assumption",
+      "C) Ask both engineers to continue their versions until integration testing distinguishes them",
+      "D) Review the requirement with its owner and document the agreed interpretation",
+    ],
+    correct: "D",
+    explanation: "Resolving ambiguity with the proper stakeholder and documenting the decision avoids incompatible assumptions.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "A teammate asks for help with a problem outside your specialty. Which response is strongest?",
+    choices: [
+      "A) Suggest that they contact an expert first and offer assistance only after that discussion",
+      "B) Help frame the issue and connect them with appropriate expertise",
+      "C) Share an answer based on a related project without verifying differences in their situation",
+      "D) Volunteer to complete the unfamiliar task yourself to avoid slowing down the teammate",
+    ],
+    correct: "B",
+    explanation: "Supporting problem definition and finding the right expertise is useful without overstating competence.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Easy",
+    question: "You are asked to estimate a quantity with incomplete data. What is the best way to present the result?",
+    choices: [
+      "A) Report the midpoint of plausible estimates as one number to make planning easier",
+      "B) State that the estimate must wait until all input data have been independently verified",
+      "C) Provide an estimate with explicit assumptions and uncertainty",
+      "D) Use a deliberately high estimate as a substitute for quantifying uncertainty",
+    ],
+    correct: "C",
+    explanation: "Assumptions, a range, and uncertainty convey the reliability of an engineering estimate.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "Your component meets performance requirements but exceeds the allocated mass by 8%. Which first action best balances system engineering priorities?",
+    choices: [
+      "A) Quantify system-level impact and evaluate mass-performance trades with stakeholders",
+      "B) Reduce a conservative design margin to recover mass before confirming its system impact",
+      "C) Request a mass-allocation adjustment using the nominal performance improvement alone",
+      "D) Prioritize performance closure and defer the mass exceedance to the next subsystem review",
+    ],
+    correct: "A",
+    explanation: "A system-level trade evaluates whether performance benefit justifies the mass impact and documents possible corrections.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A schedule is slipping because verification takes longer than planned. Which response is most defensible?",
+    choices: [
+      "A) Remove lower-value verification tasks after internal team agreement, then notify stakeholders",
+      "B) Increase team hours temporarily and revisit schedule estimates after the next milestone",
+      "C) Maintain the existing delivery forecast until there is numerical proof it cannot be met",
+      "D) Identify the critical path, assess risk, and propose approved recovery options",
+    ],
+    correct: "D",
+    explanation: "A recovery plan should address the true bottleneck while preserving required verification and escalating decisions early.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "Two technically sound concepts have similar expected performance but very different development risk. What is the best decision process?",
+    choices: [
+      "A) Favor the concept with higher technical maturity and presume the remaining differences are minor",
+      "B) Compare lifecycle cost, performance margin, and risk against program priorities",
+      "C) Use the technical lead’s preference as the decision criterion if performance estimates agree",
+      "D) Choose the lowest-risk concept before assessing lifecycle consequences and mission priorities",
+    ],
+    correct: "B",
+    explanation: "A defensible trade weighs performance, cost, maturity, and program-specific risk rather than any single attribute alone.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A teammate finds that your analysis uses an outdated material property. What should you do first?",
+    choices: [
+      "A) Document why the historical property was reasonable before assessing whether results change",
+      "B) Update the source property but keep the original results until the next routine model run",
+      "C) Verify the current property and re-evaluate affected conclusions",
+      "D) Correct the reported material value while scheduling downstream analysis for a later release",
+    ],
+    correct: "C",
+    explanation: "An input-data error requires checking the authoritative property and quantifying impacts on the calculations and conclusions.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "In an interview, you discover halfway through a solution that an early assumption is invalid. Which response is best?",
+    choices: [
+      "A) Explicitly correct the assumption and revise the affected reasoning",
+      "B) Complete the solution using the original premise and describe the discrepancy at the end",
+      "C) Restart the derivation from the corrected assumption without explaining the adjustment",
+      "D) Ask to replace the problem so the initial reasoning error does not affect the discussion",
+    ],
+    correct: "A",
+    explanation: "Acknowledging and correcting assumptions demonstrates intellectual honesty and structured technical problem solving.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A critical component passes nominal testing but has little design margin. What should you recommend?",
+    choices: [
+      "A) Accept the nominal pass but recommend monitoring performance over the next test campaign",
+      "B) Increase the documented margin by changing the reported uncertainty assumptions",
+      "C) Recommend narrowing the operating range before evaluating full requirement implications",
+      "D) Quantify uncertainties and evaluate worst-case and off-nominal conditions",
+    ],
+    correct: "D",
+    explanation: "A nominal pass doesn't establish robustness; assessing uncertainty, off-nominal cases, and margin is essential.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "An engineer on your team disagrees with your design choice and provides credible analysis. What is the most productive next step?",
+    choices: [
+      "A) Ask the project lead to select one proposal before directly comparing assumptions",
+      "B) Compare assumptions and evidence, then agree on discriminating analysis or testing",
+      "C) Maintain your design until the other analysis is independently reproduced in its entirety",
+      "D) Switch to the colleague’s proposed design based only on the analysis they have provided",
+    ],
+    correct: "B",
+    explanation: "Constructive disagreement is resolved through common criteria and evidence capable of distinguishing alternatives.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "You are asked for a delivery date before a major dependency is resolved. Which answer is best?",
+    choices: [
+      "A) Offer an aggressive target date based on best-case dependency resolution without qualification",
+      "B) Withhold all schedule estimates until the dependency has an approved closure date",
+      "C) Provide a conditional estimate, identify dependency and confidence level",
+      "D) Reuse the previous milestone estimate and add a small buffer without examining the dependency",
+    ],
+    correct: "C",
+    explanation: "A conditional estimate makes uncertainty and schedule drivers visible for planning decisions.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A production test fails intermittently, but the failure cannot yet be reproduced on demand. What should the team do next?",
+    choices: [
+      "A) Preserve logs, characterize conditions, and develop a reproducible test plan",
+      "B) Temporarily relax the failing acceptance threshold while investigating other production factors",
+      "C) Treat the failure as a low-priority random event until its occurrence rate rises substantially",
+      "D) Replace the likely hardware component and update software at the same time to accelerate testing",
+    ],
+    correct: "A",
+    explanation: "Intermittent faults need traceable evidence, controlled reproduction, and isolation of variables.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "Your manager requests a quick recommendation, but two alternatives are nearly equal and data are incomplete. What is the best communication approach?",
+    choices: [
+      "A) Present the leading option as a firm recommendation and discuss uncertainty only if asked",
+      "B) Recommend the alternative you developed because its assumptions are most familiar to you",
+      "C) Delay a recommendation until all missing information is obtained and verified",
+      "D) Recommend a provisional option with rationale, assumptions, and key validation steps",
+    ],
+    correct: "D",
+    explanation: "A provisional recommendation can move work forward while clearly distinguishing evidence from uncertainty.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A new requirement conflicts with an existing interface specification. What is the best next step?",
+    choices: [
+      "A) Implement the most recently approved requirement and reconcile the interface later",
+      "B) Raise the inconsistency through configuration and interface control",
+      "C) Follow the interface specification by default because its verification is already planned",
+      "D) Use an intermediate value that satisfies neither exact document until owners respond",
+    ],
+    correct: "B",
+    explanation: "Requirements and interface conflicts should be resolved with the authorized owners and change-control process.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A junior engineer proposes a solution that seems promising but omits a load case. How should you respond?",
+    choices: [
+      "A) Request a complete redesign because the proposal did not initially include every load case",
+      "B) Advance the concept to the next gate with an informal note about the untested load case",
+      "C) Point out the missing case and help evaluate whether it changes the decision",
+      "D) Reassign analysis ownership to a senior engineer rather than reviewing the gap together",
+    ],
+    correct: "C",
+    explanation: "Specific constructive feedback and analysis of missing cases improves both the design and the engineer's understanding.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "Your prototype shows stronger performance than predicted. What is the most responsible interpretation?",
+    choices: [
+      "A) Check test conditions and model assumptions before claiming improved capability",
+      "B) Revise the baseline performance objective to match the best measured prototype result",
+      "C) Attribute the improvement to conservative modeling without checking measurement calibration",
+      "D) Reduce the next test matrix because the prototype exceeded predicted performance",
+    ],
+    correct: "A",
+    explanation: "Unexpectedly favorable results can reflect measurement bias or model error and require validation before changing claims.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A stakeholder asks you to omit an adverse simulation result from a review slide. Which response best supports engineering integrity?",
+    choices: [
+      "A) Omit the result from the main review because simulations are less authoritative than tests",
+      "B) Keep it in backup material and discuss it only if a reviewer requests more detail",
+      "C) Present a statistical average without highlighting the adverse operating condition",
+      "D) Explain its relevance and include the result with appropriate uncertainty and context",
+    ],
+    correct: "D",
+    explanation: "Material results should be communicated transparently, including limitations, rather than selectively hidden.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A cross-functional team uses conflicting terminology for the same subsystem interface. What is the best fix?",
+    choices: [
+      "A) Keep discipline-specific names and rely on the integration team to interpret the differences",
+      "B) Agree on a shared interface definition and update controlled documentation",
+      "C) Use a verbal naming agreement for this program without revising interface documentation",
+      "D) Escalate to management before gathering concrete examples of conflicting usage",
+    ],
+    correct: "B",
+    explanation: "Shared terminology and controlled interface documentation reduce integration and verification errors.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A test procedure is technically valid but difficult for operators to follow consistently. What is the best improvement?",
+    choices: [
+      "A) Require an additional operator briefing while keeping the difficult instructions unchanged",
+      "B) Simplify the procedure by reducing repetition in mandated checks without approval",
+      "C) Revise instructions for clarity and verify usability without weakening requirements",
+      "D) Automate the full sequence first and evaluate additional failure modes only afterward",
+    ],
+    correct: "C",
+    explanation: "Human factors and repeatability matter; controlled procedure improvements can reduce errors while preserving verification intent.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "Your results depend strongly on a parameter with poor measurement accuracy. Which next analysis is most valuable?",
+    choices: [
+      "A) Perform sensitivity and uncertainty analysis around that parameter",
+      "B) Continue with the nominal parameter value and document sensitivity as future work",
+      "C) Increase precision of numerical integration while retaining the same uncertain input",
+      "D) Select the most conservative single input value without examining sensitivity across the range",
+    ],
+    correct: "A",
+    explanation: "Sensitivity and uncertainty analysis reveal how measurement quality affects conclusions and where better data would matter.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "A previously approved engineering change introduces an unanticipated downstream issue. What should happen next?",
+    choices: [
+      "A) Retain the approved change and handle the downstream issue as an unrelated new task",
+      "B) Revert to the old design immediately, without confirming effects on other interfaces",
+      "C) Defer tracking the issue until the next release because formal approval already occurred",
+      "D) Document the issue, assess impact, and process corrective action through change control",
+    ],
+    correct: "D",
+    explanation: "Approval does not eliminate the need to assess emergent effects and maintain configuration traceability.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "An interviewer asks you to describe a failure. Which explanation is strongest?",
+    choices: [
+      "A) Discuss the strongest accomplishments from the same project instead of the failed decision",
+      "B) Describe your decision, the evidence you missed, and the specific improvement made",
+      "C) Explain external factors in detail and reserve limited time for your personal decisions",
+      "D) Describe the lessons learned in general terms without a specific failed example",
+    ],
+    correct: "B",
+    explanation: "A strong failure example shows ownership, causal analysis, and changed behavior without unfairly blaming others.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Medium",
+    question: "Two urgent engineering tasks compete for a single test facility. What is the strongest scheduling approach?",
+    choices: [
+      "A) Assign facility time to the shorter test because it can deliver results sooner",
+      "B) Give both tasks equal facility time before evaluating their program dependencies",
+      "C) Prioritize using program impact, dependencies, and agreed decision authority",
+      "D) Prioritize whichever team reserved the facility earlier without further trade analysis",
+    ],
+    correct: "C",
+    explanation: "Transparent priority criteria account for schedule dependencies and program risk while coordinating shared resources.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "A new analysis shows a safety-critical requirement could be violated in a rare operating condition, but the next review is tomorrow. What is the strongest action?",
+    choices: [
+      "A) Promptly communicate the risk, evidence, and proposed containment or investigation",
+      "B) Complete a second independent model run before telling the review team about the concern",
+      "C) Propose removing the rare condition from expected operations before any formal risk assessment",
+      "D) Present nominal compliance and bring up the uncommon case only if a reviewer specifically asks",
+    ],
+    correct: "A",
+    explanation: "Safety-relevant credible evidence warrants timely escalation, clear uncertainty statements, and controlled mitigation planning.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "Your design trade favors concept A under nominal assumptions but concept B under a plausible uncertainty range. What should you do?",
+    choices: [
+      "A) Select A on the basis of nominal performance and note uncertainty in the appendix",
+      "B) Select B because sensitivity suggests it might be safer in a subset of scenarios",
+      "C) Average both concepts’ weighted trade scores and declare them essentially equivalent",
+      "D) Present robustness and sensitivity, then recommend based on risk priorities and evidence",
+    ],
+    correct: "D",
+    explanation: "When ranking changes with uncertain inputs, robustness and decision-makers' risk tolerance become central to the trade.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "An integration failure may arise from software, hardware, or an interface mismatch. Which investigation plan is most effective?",
+    choices: [
+      "A) Start by modifying software because it offers the quickest iterative test cycle",
+      "B) Define observable hypotheses and isolate subsystems through controlled tests",
+      "C) Replace the most likely hardware and software components in a combined experiment",
+      "D) Continue full-system testing until a failure trace clearly identifies the responsible subsystem",
+    ],
+    correct: "B",
+    explanation: "Hypothesis-driven isolation identifies the source while avoiding confounding changes that obscure causality.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "You are asked to sign off on a design whose verification evidence is incomplete, while delivery pressure is high. What is the best response?",
+    choices: [
+      "A) Approve provisionally and document an informal caveat that final evidence will follow",
+      "B) Accept analogous test evidence from related hardware as a substitute for the missing checks",
+      "C) Document the evidence gap and follow the formal exception or approval process",
+      "D) Use validated simulation in place of unspecified physical tests without formal approval",
+    ],
+    correct: "C",
+    explanation: "Formal signoff depends on required evidence or authorized exceptions, especially when acceptance is incomplete.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "A program's performance requirement can be met only by accepting lower reliability than originally allocated. Which approach is most defensible?",
+    choices: [
+      "A) Quantify the reliability impact and elevate the cross-requirement trade for authorized decision",
+      "B) Adjust the reliability allocation to the observed design capability and revisit requirements later",
+      "C) Accept the reduced reliability because performance is the immediate acceptance milestone",
+      "D) Assume existing redundancy elsewhere closes the reliability shortfall without updated analysis",
+    ],
+    correct: "A",
+    explanation: "Cross-requirement tradeoffs need quantified impacts, traceability, and approval by the responsible system authorities.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "Your team finds a test result inconsistent with the validated analysis, but the test setup itself is uncertain. What is the strongest first conclusion?",
+    choices: [
+      "A) Treat the validated analytical model as more credible until a clean test is available",
+      "B) Treat the unvalidated test configuration as the likely cause and close the discrepancy",
+      "C) Average the test and prediction into a compromise estimate while calibration is reviewed",
+      "D) The discrepancy needs measurement-system and model investigation before a conclusion",
+    ],
+    correct: "D",
+    explanation: "Neither source should be accepted uncritically; assessing calibration, procedure, assumptions, and repeatability is the first step.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "An engineering change improves one subsystem but threatens a downstream interface verification schedule. What is the best recommendation?",
+    choices: [
+      "A) Implement the improvement now and reserve integration work for the next planned test window",
+      "B) Perform an integrated impact assessment with interface owners before authorizing the change",
+      "C) Reject the proposed change outright because it could interfere with existing verification plans",
+      "D) Authorize the change provisionally and let the downstream team manage the schedule risk",
+    ],
+    correct: "B",
+    explanation: "Changes should consider cross-system interfaces, verification impacts, and configuration control rather than isolated subsystem gains.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "A customer asks for a definitive technical prediction, but the model has never been validated in the requested regime. What response is strongest?",
+    choices: [
+      "A) Provide the nominal prediction while planning to characterize extrapolation uncertainty afterward",
+      "B) Decline any preliminary estimate until a full experimental validation program is completed",
+      "C) Provide a bounded estimate with validation limitations and a plan to reduce uncertainty",
+      "D) Offer the favorable end of the plausible prediction range to preserve customer confidence",
+    ],
+    correct: "C",
+    explanation: "Clear uncertainty boundaries and a validation plan make predictions useful without overstating model credibility.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "Several reviewers provide conflicting recommendations but use different objective functions. What is the most effective next step?",
+    choices: [
+      "A) Align on decision criteria and constraints, then compare alternatives consistently",
+      "B) Use a ranked vote among reviewers before harmonizing the different objectives",
+      "C) Defer to the most experienced reviewer when criteria cannot be reconciled quickly",
+      "D) Optimize each objective separately and combine the selected recommendations afterward",
+    ],
+    correct: "A",
+    explanation: "A trade cannot be reconciled fairly until stakeholders agree on what is being optimized and which constraints apply.",
+  },
+  {
+    topic: "Behavioral",
+    difficulty: "Hard",
+    question: "A colleague proposes bypassing a minor documentation step to accelerate an otherwise acceptable engineering test. What response is best?",
+    choices: [
+      "A) Proceed under an informal agreement because the step was completed on earlier tests",
+      "B) Run the test first and record a procedural deviation only if results are questionable",
+      "C) Keep the procedure unchanged even if a formally approved streamlined version is feasible",
+      "D) Determine the requirement and seek an authorized streamlined procedure or deviation",
+    ],
+    correct: "D",
+    explanation: "An authorized procedural change can balance schedule needs with traceability and compliance; informal bypasses risk invalid evidence.",
+  },
 ];

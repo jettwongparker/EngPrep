@@ -55,7 +55,7 @@ useEffect(() => {
 
               <Link
                 href="/"
-                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
+                className="font-semibold"
               >
                 Home
               </Link>
@@ -65,6 +65,13 @@ useEffect(() => {
                 className="hover:text-gray-500 dark:hover:text-gray-400 transition"
               >
                 Practice
+              </Link>
+
+              <Link
+                href="/custom-generation"
+                className="hover:text-gray-500 dark:hover:text-gray-400 transition"
+              >
+                Custom Generation
               </Link>
 
               <Link
@@ -166,6 +173,14 @@ useEffect(() => {
                 className="py-3 border-b border-gray-200 dark:border-gray-700"
               >
                 Practice
+              </Link>
+
+              <Link
+                href="/custom-generation"
+                onClick={() => setMenuOpen(false)}
+                className="py-3 border-b border-gray-200 dark:border-gray-700"
+              >
+                Custom Generation
               </Link>
 
               <Link
